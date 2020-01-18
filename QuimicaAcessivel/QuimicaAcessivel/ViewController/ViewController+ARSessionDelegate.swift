@@ -6,4 +6,17 @@
 //  Copyright © 2020 Guilherme Paciulli. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SceneKit
+import ARKit
+
+extension ViewController: ARSessionDelegate {
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let imageAnchor = anchor as? ARImageAnchor else { return }
+        
+        
+        
+    }
+    
+}

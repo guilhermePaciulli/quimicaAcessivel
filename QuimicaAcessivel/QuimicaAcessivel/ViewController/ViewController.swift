@@ -19,9 +19,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         sceneView?.delegate = self
-        sceneView?.session.delegate = self as! ARSessionDelegate
+        sceneView?.session.delegate = self
     }
     
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A34757FE23D68DC100FFC268 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A34757FD23D68DC100FFC268 /* art.scnassets */; };
 		A3AB4B2723D021390031B361 /* ViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */; };
 		A3AB4B2A23D021920031B361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB4B2923D021920031B361 /* ViewController.swift */; };
 		A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A34757FD23D68DC100FFC268 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
 		A3AB4B2923D021920031B361 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				A3D7A1A623D019B500C4633B /* Assets.xcassets */,
+				A34757FD23D68DC100FFC268 /* art.scnassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				A3AB4B3023D021DA0031B361 /* Main.storyboard in Resources */,
 				A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */,
+				A34757FE23D68DC100FFC268 /* art.scnassets in Resources */,
 				A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,13 +314,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VLLH384AC4;
+				DEVELOPMENT_TEAM = PAHQSQBM8P;
 				INFOPLIST_FILE = "$(SRCROOT)/QuimicaAcessivel/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = guilherme.Paciulli.QuimicaAcessivel;
+				PRODUCT_BUNDLE_IDENTIFIER = guilherme.Paciulli.QuimicaAcessivel.prod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

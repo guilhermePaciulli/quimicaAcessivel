@@ -16,9 +16,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView?
     
     // MARK:- Properties
-    var animationInfo: AnimationInfo?
-    var anchoredNode: SCNNode?
-    var imageNode: SCNNode?
+    var atom = Atom()
     var session: ARSession? { return sceneView?.session }
     
     // MARK:- Life cycle
@@ -51,12 +49,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
-}
-
-struct AnimationInfo {
-    var time: TimeInterval
-    var duration: TimeInterval
-    var initial: simd_float3
-    var final: simd_float3
 }
 

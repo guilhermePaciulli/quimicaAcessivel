@@ -14,15 +14,23 @@ extension ViewController: ARSessionDelegate {
     
     // MARK:- Delegate methods
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let imageAnchor = anchor as? ARImageAnchor, let worldScene = sceneView?.scene else {
+        guard let imageAnchor = anchor as? ARImageAnchor else {
             print("anchor not found")
             return
-        }        
-        atom.initializeAtom(inScene: worldScene, withAnchor: imageAnchor, andImageNode: node)
+        }
+        
+        guard let worldScene = sceneView?.scene else { print("Scene not initialized"); return }
+        guard let atomFound = atoms.first(where: { $0.referenceImage.name == imageAnchor.referenceImage.name }) else {
+            print("atom not found in resources")
+            return
+        }
+        
+        visibleAtoms.append(atomFound)
+        atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor, andImageNode: node)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        atom.updatePosition(atTime: time)
+        visibleAtoms.forEach({ $0.updatePosition(atTime: time) })
     }
     
 }

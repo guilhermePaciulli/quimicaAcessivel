@@ -5,7 +5,10 @@
   },
   "resources" : [
     {
-      "filename" : "frame 1.arreferenceimage"
+      "filename" : "hydrogen.arreferenceimage"
+    },
+    {
+      "filename" : "sodium.arreferenceimage"
     }
   ]
 }

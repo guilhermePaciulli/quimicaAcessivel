@@ -18,6 +18,13 @@ class Resources {
         return atomNode
     }()
     
+    static var referenceImages: [ARReferenceImage] = {
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
+            fatalError("Missing ARReference Images from AR Resources folder.")
+        }
+        return Array(referenceImages)
+    }()
+    
 }
 
 struct MovementInfo {

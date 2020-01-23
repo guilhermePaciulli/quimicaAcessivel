@@ -16,7 +16,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView?
     
     // MARK:- Properties
-    var atom = Atom()
+    var atoms: [Atom] = AtomType.displayableAtoms()
+    var visibleAtoms: [Atom] = []
     var session: ARSession? { return sceneView?.session }
     
     // MARK:- Life cycle
@@ -43,9 +44,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     private func resetTracking() {
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else { fatalError("Missing expected resources.") }
         let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = referenceImages
+        configuration.detectionImages = Set(Resources.referenceImages)
         session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     

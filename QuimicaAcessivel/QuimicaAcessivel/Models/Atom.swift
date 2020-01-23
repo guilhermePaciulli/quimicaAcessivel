@@ -12,14 +12,24 @@ import ARKit
 
 class Atom {
     
+    var type: AtomType
+    var referenceImage: ARReferenceImage
     var imageNode: SCNNode?
     var atomAnchor: ARImageAnchor?
     var atomObject: SCNNode?
     var atomScene: SCNScene?
     var movement: MovementInfo?
     
+    init?(with type: AtomType) {
+        self.type = type
+        guard let image = Resources.referenceImages.first(where: { $0.name == type.rawValue }) else {
+            return nil
+        }
+        referenceImage = image
+    }
+    
     func initializeAtom(inScene scene: SCNScene, withAnchor anchor: ARImageAnchor, andImageNode image: SCNNode) {
-        let object = Resources.atomNode
+        guard let object = type.atomObject() else { return }
         
         let (min, max) = object.boundingBox
         let size = SCNVector3Make(max.x - min.x, max.y - min.y, max.z - min.z)

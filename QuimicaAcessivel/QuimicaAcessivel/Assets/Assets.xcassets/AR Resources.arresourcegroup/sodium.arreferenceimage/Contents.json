@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "frame 1.png"
+      "filename" : "Group 3.png"
     }
   ],
   "info" : {
@@ -10,7 +10,6 @@
     "author" : "xcode"
   },
   "properties" : {
-    "width" : 64,
-    "unit" : "centimeters"
+    "width" : 10.192134107027725
   }
 }

@@ -11,6 +11,8 @@
 		A347580023D7EB0900FFC268 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34757FF23D7EB0900FFC268 /* Atom.swift */; };
 		A347580323D7ECE200FFC268 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580223D7ECE200FFC268 /* Resources.swift */; };
 		A347580523D91B2D00FFC268 /* AtomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580423D91B2D00FFC268 /* AtomType.swift */; };
+		A38973F823D929E400315AED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973F723D929E400315AED /* Utils.swift */; };
+		A38973FA23D946F100315AED /* AtomCombiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973F923D946F100315AED /* AtomCombiner.swift */; };
 		A3AB4B2723D021390031B361 /* ViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */; };
 		A3AB4B2A23D021920031B361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB4B2923D021920031B361 /* ViewController.swift */; };
 		A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */; };
@@ -24,6 +26,8 @@
 		A34757FF23D7EB0900FFC268 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		A347580223D7ECE200FFC268 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		A347580423D91B2D00FFC268 /* AtomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomType.swift; sourceTree = "<group>"; };
+		A38973F723D929E400315AED /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A38973F923D946F100315AED /* AtomCombiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomCombiner.swift; sourceTree = "<group>"; };
 		A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
 		A3AB4B2923D021920031B361 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 				A347580423D91B2D00FFC268 /* AtomType.swift */,
 				A34757FF23D7EB0900FFC268 /* Atom.swift */,
 				A347580223D7ECE200FFC268 /* Resources.swift */,
+				A38973F923D946F100315AED /* AtomCombiner.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -71,6 +76,7 @@
 				A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */,
 				A3D7A19D23D019B400C4633B /* AppDelegate.swift */,
 				A3D7A1AB23D019B500C4633B /* Info.plist */,
+				A38973F723D929E400315AED /* Utils.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -186,7 +192,9 @@
 				A3AB4B2A23D021920031B361 /* ViewController.swift in Sources */,
 				A347580523D91B2D00FFC268 /* AtomType.swift in Sources */,
 				A3AB4B2723D021390031B361 /* ViewController+ARSessionDelegate.swift in Sources */,
+				A38973F823D929E400315AED /* Utils.swift in Sources */,
 				A347580023D7EB0900FFC268 /* Atom.swift in Sources */,
+				A38973FA23D946F100315AED /* AtomCombiner.swift in Sources */,
 				A347580323D7ECE200FFC268 /* Resources.swift in Sources */,
 				A3D7A19E23D019B400C4633B /* AppDelegate.swift in Sources */,
 			);

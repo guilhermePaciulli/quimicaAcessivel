@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class Atom {
+class Atom: Equatable {
     
     var type: AtomType
     var referenceImage: ARReferenceImage
@@ -53,7 +53,6 @@ class Atom {
         atomObject = object
     }
     
-    
     func updatePosition(atTime time: TimeInterval) {
         guard let imageNode = imageNode, let atomNode = atomObject else { return }
         
@@ -81,5 +80,8 @@ class Atom {
         movement = MovementInfo(time: time, duration: animationDuration, initial: from, final: to)
     }
     
+    static func == (lhs: Atom, rhs: Atom) -> Bool {
+        return lhs.referenceImage.name == rhs.referenceImage.name
+    }
     
 }

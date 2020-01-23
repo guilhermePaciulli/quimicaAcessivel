@@ -12,6 +12,11 @@ import ARKit
 
 extension ViewController: ARSessionDelegate {
     
+    var minimumDistanceBetweenAtoms: Float {
+        return 31
+    }
+    
+    
     // MARK:- Delegate methods
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else {
@@ -30,7 +35,25 @@ extension ViewController: ARSessionDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        visibleAtoms.forEach({ $0.updatePosition(atTime: time) })
+        visibleAtoms.forEach({ [weak self] a0 in
+            a0.updatePosition(atTime: time)
+            self?.visibleAtoms.forEach({ a1 in
+                guard a1 != a0 else { return }
+                guard let o1 = a0.atomObject,
+                    let o2 = a1.atomObject else { return }
+                
+                let d = simd_distance(o1.simdWorldPosition, o2.simdWorldPosition)
+                print(d)
+                if d < minimumDistanceBetweenAtoms {
+                    fatalError()
+                }
+            })
+        })
+    }
+    
+    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
     }
     
 }
+//guard let camera = self.sceneView?.pointOfView, let object = $0.atomObject else { return }
+//guard renderer.isNode(object, insideFrustumOf: camera) else { return }

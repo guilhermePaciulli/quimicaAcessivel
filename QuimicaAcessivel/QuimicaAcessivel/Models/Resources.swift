@@ -12,12 +12,6 @@ import ARKit
 
 class Resources {
     
-    static var atomNode: SCNNode = {
-        guard let scene = SCNScene(named: "art.scnassets/atom.scn") else { fatalError("Missing atom.scn file!") }
-        guard let atomNode = scene.rootNode.childNode(withName: "atom", recursively: true) else { fatalError("Missing atom node in atom.scn file!") }
-        return atomNode
-    }()
-    
     static var referenceImages: [ARReferenceImage] = {
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
             fatalError("Missing ARReference Images from AR Resources folder.")

@@ -13,47 +13,63 @@ import ARKit
 extension ViewController: ARSessionDelegate {
     
     var minimumDistanceBetweenAtoms: Float {
-        return 31
+        return 50
     }
     
-    
-    // MARK:- Delegate methods
+    // MARK:- Delegate method
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let imageAnchor = anchor as? ARImageAnchor else {
             print("anchor not found")
             return
         }
-        
+
         guard let worldScene = sceneView?.scene else { print("Scene not initialized"); return }
         guard let atomFound = atoms.first(where: { $0.referenceImage.name == imageAnchor.referenceImage.name }) else {
             print("atom not found in resources")
             return
         }
-        
+
+        guard atomFound.type != .referenceObject else { return }
         visibleAtoms.append(atomFound)
-        atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor, andImageNode: node)
+        atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor)
     }
     
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let imageAnchor = anchor as? ARImageAnchor else {
+            print("anchor not found")
+            return
+        }
+        visibleAtoms.forEach({
+            guard !$0.flag else { return }
+            $0.didUpdateTo(anchor: imageAnchor)
+        })
+    }
+
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         visibleAtoms.forEach({ [weak self] a0 in
-            a0.updatePosition(atTime: time)
+            guard !a0.isMoving(), !a0.flag else { return }
+            
             self?.visibleAtoms.forEach({ a1 in
-                guard a1 != a0 else { return }
-                guard let o1 = a0.atomObject,
-                    let o2 = a1.atomObject else { return }
+                guard !a1.isMoving(), !(a1 === a0), !a0.flag else { return }
                 
-                let d = simd_distance(o1.simdWorldPosition, o2.simdWorldPosition)
+                guard let p1 = a0.atomAnchor?.transform.simd_vector3,
+                    let p2 = a1.atomAnchor?.transform.simd_vector3 else { return }
+                
+                
+                let d = simd_distance(p1, p2)
                 print(d)
                 if d < minimumDistanceBetweenAtoms {
-                    fatalError()
+                    if let molecule = a0.combination(withAtom: a1) {
+                        a0.flag = true
+                        a1.flag = true
+                    }
                 }
             })
         })
     }
     
-    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
-    }
-    
 }
+
 //guard let camera = self.sceneView?.pointOfView, let object = $0.atomObject else { return }
 //guard renderer.isNode(object, insideFrustumOf: camera) else { return }

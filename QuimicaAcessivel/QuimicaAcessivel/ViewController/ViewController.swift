@@ -41,6 +41,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let scene = SCNScene()
         sceneView?.scene = scene
         sceneView?.delegate = self
+        sceneView?.scene.physicsWorld.gravity = SCNVector3(0, 0, 0)
     }
     
     private func resetTracking() {
@@ -48,6 +49,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         configuration.detectionImages = Set(Resources.referenceImages)
         session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
+    
     
 }
 

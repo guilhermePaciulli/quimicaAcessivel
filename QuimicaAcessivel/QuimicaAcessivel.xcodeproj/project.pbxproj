@@ -12,11 +12,13 @@
 		A347580323D7ECE200FFC268 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580223D7ECE200FFC268 /* Resources.swift */; };
 		A347580523D91B2D00FFC268 /* AtomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580423D91B2D00FFC268 /* AtomType.swift */; };
 		A38973F823D929E400315AED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973F723D929E400315AED /* Utils.swift */; };
-		A38973FA23D946F100315AED /* AtomCombiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973F923D946F100315AED /* AtomCombiner.swift */; };
+		A38973FC23D94FD200315AED /* AtomCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973FB23D94FD200315AED /* AtomCombination.swift */; };
+		A38973FE23D94FE600315AED /* Molecule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973FD23D94FE600315AED /* Molecule.swift */; };
 		A3AB4B2723D021390031B361 /* ViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */; };
 		A3AB4B2A23D021920031B361 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AB4B2923D021920031B361 /* ViewController.swift */; };
 		A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */; };
 		A3AB4B3023D021DA0031B361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB4B2F23D021DA0031B361 /* Main.storyboard */; };
+		A3C6978D23DA8DF500E92EA2 /* Atom+Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C6978C23DA8DF500E92EA2 /* Atom+Movement.swift */; };
 		A3D7A19E23D019B400C4633B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7A19D23D019B400C4633B /* AppDelegate.swift */; };
 		A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D7A1A623D019B500C4633B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -27,11 +29,13 @@
 		A347580223D7ECE200FFC268 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		A347580423D91B2D00FFC268 /* AtomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomType.swift; sourceTree = "<group>"; };
 		A38973F723D929E400315AED /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		A38973F923D946F100315AED /* AtomCombiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomCombiner.swift; sourceTree = "<group>"; };
+		A38973FB23D94FD200315AED /* AtomCombination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomCombination.swift; sourceTree = "<group>"; };
+		A38973FD23D94FE600315AED /* Molecule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Molecule.swift; sourceTree = "<group>"; };
 		A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
 		A3AB4B2923D021920031B361 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3AB4B2F23D021DA0031B361 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A3C6978C23DA8DF500E92EA2 /* Atom+Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atom+Movement.swift"; sourceTree = "<group>"; };
 		A3D7A19A23D019B400C4633B /* QuimicaAcessivel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuimicaAcessivel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D7A19D23D019B400C4633B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D7A1A623D019B500C4633B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,10 +56,11 @@
 		A347580123D7EB0C00FFC268 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A347580423D91B2D00FFC268 /* AtomType.swift */,
-				A34757FF23D7EB0900FFC268 /* Atom.swift */,
+				A3C6978A23DA8DDA00E92EA2 /* Atom */,
 				A347580223D7ECE200FFC268 /* Resources.swift */,
-				A38973F923D946F100315AED /* AtomCombiner.swift */,
+				A38973FB23D94FD200315AED /* AtomCombination.swift */,
+				A347580423D91B2D00FFC268 /* AtomType.swift */,
+				A38973FD23D94FE600315AED /* Molecule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,6 +93,15 @@
 				A34757FD23D68DC100FFC268 /* art.scnassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		A3C6978A23DA8DDA00E92EA2 /* Atom */ = {
+			isa = PBXGroup;
+			children = (
+				A34757FF23D7EB0900FFC268 /* Atom.swift */,
+				A3C6978C23DA8DF500E92EA2 /* Atom+Movement.swift */,
+			);
+			path = Atom;
 			sourceTree = "<group>";
 		};
 		A3D7A19123D019B400C4633B = {
@@ -190,12 +204,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3AB4B2A23D021920031B361 /* ViewController.swift in Sources */,
+				A3C6978D23DA8DF500E92EA2 /* Atom+Movement.swift in Sources */,
 				A347580523D91B2D00FFC268 /* AtomType.swift in Sources */,
 				A3AB4B2723D021390031B361 /* ViewController+ARSessionDelegate.swift in Sources */,
 				A38973F823D929E400315AED /* Utils.swift in Sources */,
+				A38973FC23D94FD200315AED /* AtomCombination.swift in Sources */,
 				A347580023D7EB0900FFC268 /* Atom.swift in Sources */,
-				A38973FA23D946F100315AED /* AtomCombiner.swift in Sources */,
 				A347580323D7ECE200FFC268 /* Resources.swift in Sources */,
+				A38973FE23D94FE600315AED /* Molecule.swift in Sources */,
 				A3D7A19E23D019B400C4633B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,17 +14,28 @@ import ARKit
 enum AtomType: String, CaseIterable {
     case hydrogen
     case sodium
+    case referenceObject
     
     func atomObject() -> SCNNode? {
         switch self {
         case .hydrogen:
             let object = SCNSphere(radius: radius())
             object.firstMaterial?.diffuse.contents = UIColor.red
-            return SCNNode(geometry: object)
+            let node = SCNNode(geometry: object)
+            node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
+            return node
         case .sodium:
             let object = SCNSphere(radius: radius())
             object.firstMaterial?.diffuse.contents = UIColor.blue
-            return SCNNode(geometry: object)
+            let node = SCNNode(geometry: object)
+            node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
+            return node
+        case .referenceObject:
+            let object = SCNSphere(radius: radius())
+            object.firstMaterial?.diffuse.contents = UIColor.cyan
+            let node = SCNNode(geometry: object)
+            node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
+            return SCNNode()
         }
     }
     
@@ -33,7 +44,7 @@ enum AtomType: String, CaseIterable {
     }
     
     private func radius() -> CGFloat {
-        return 0.15
+        return 0.075
     }
     
 }

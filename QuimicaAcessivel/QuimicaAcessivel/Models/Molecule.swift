@@ -8,13 +8,13 @@
 
 import ARKit
 
-enum Molecule: CaseIterable {
+enum Molecule: String, CaseIterable {
     case testing
     
     var name: String {
         switch self {
         case .testing:
-            return "Testing"
+            return "Hidróxido de carbono"
         }
     }
     
@@ -25,23 +25,16 @@ enum Molecule: CaseIterable {
         }
     }
     
-    var node: SCNNode {
+    var image: UIImage? {
+        return UIImage(named: self.rawValue)
+    }
+    
+    var description: String {
         switch self {
         case .testing:
-            let object = SCNBox(width: boxDimension, height: boxDimension, length: boxDimension, chamferRadius: chamferRadius)
-            object.firstMaterial?.diffuse.contents = UIColor.white
-            let node = SCNNode(geometry: object)
-            node.physicsBody = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: object, options: nil))
-            return node
+            return "Svetlana Alekseyevna Smirnova (née Veresova) (Russian: Светлана Алексеевна Смирнова; born March 10, 1962 in Pskov) is a Russian sport shooter.[2] She won two medals (silver and bronze), as a member of the Soviet Union shooting team, at the 1987 ISSF World Shooting Championships in Budapest, Hungary, and at the 1990 ISSF World Shooting Championships in Moscow, Russia."
         }
     }
     
-    var boxDimension: CGFloat {
-        return 0.15
-    }
-    
-    var chamferRadius: CGFloat {
-        return 1
-    }
     
 }

@@ -13,7 +13,7 @@ import ARKit
 extension ViewController: ARSessionDelegate {
     
     var minimumDistanceBetweenAtoms: Float {
-        return 50
+        return 33
     }
     
     // MARK:- Delegate method
@@ -55,14 +55,24 @@ extension ViewController: ARSessionDelegate {
                 
                 guard let p1 = a0.atomAnchor?.transform.simd_vector3,
                     let p2 = a1.atomAnchor?.transform.simd_vector3 else { return }
-                
-                
+                                
                 let d = simd_distance(p1, p2)
                 print(d)
                 if d < minimumDistanceBetweenAtoms {
                     if let molecule = a0.combination(withAtom: a1) {
                         a0.flag = true
                         a1.flag = true
+                        let fadeOut = SCNAction.fadeOut(duration: 1)
+                        a0.atomObject?.runAction(fadeOut)
+                        a1.atomObject?.runAction(fadeOut) {
+                            DispatchQueue.main.async {
+                                let details: MoleculeDetailsViewController = MoleculeDetailsViewController.instantiate()
+                                details.molecule = molecule
+                                details.modalPresentationStyle = .overCurrentContext
+                                details.modalTransitionStyle = .crossDissolve
+                                self?.present(details, animated: true)
+                            }
+                        }
                     }
                 }
             })

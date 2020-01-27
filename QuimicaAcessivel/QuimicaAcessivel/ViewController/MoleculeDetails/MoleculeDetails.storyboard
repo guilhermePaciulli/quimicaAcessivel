@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Molecule Details View Controller-->
+        <scene sceneID="T8X-IS-rwY">
+            <objects>
+                <viewController storyboardIdentifier="MoleculeDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dm9-lp-mrB" customClass="MoleculeDetailsViewController" customModule="QuimicaAcessivel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e8d-ON-efo">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidróxido de carbono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjt-GQ-4kT">
+                                <rect key="frame" x="54" y="46" width="272" height="34"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1d-DV-Owe">
+                                <rect key="frame" x="74" y="111" width="485" height="142.5"/>
+                                <mutableString key="text">Svetlana Alekseyevna Smirnova (née Veresova) (Russian: Светлана Алексеевна Смирнова; born March 10, 1962 in Pskov) is a Russian sport shooter.[2] She won two medals (silver and bronze), as a member of the Soviet Union shooting team, at the 1987 ISSF World Shooting Championships in Budapest, Hungary, and at the 1990 ISSF World Shooting Championships in Moscow, Russia.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CFO-88-6pb">
+                                <rect key="frame" x="599.5" y="75.5" width="242.5" height="242"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CFO-88-6pb" secondAttribute="height" multiplier="1:1" id="ivg-d1-SO1"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29759022887323938" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="CFO-88-6pb" firstAttribute="width" secondItem="0Lu-CV-EfE" secondAttribute="width" multiplier="0.3" id="0Gm-PO-HLN"/>
+                            <constraint firstItem="H1d-DV-Owe" firstAttribute="leading" secondItem="0Lu-CV-EfE" secondAttribute="leading" constant="30" id="Mae-4O-YaH"/>
+                            <constraint firstItem="0Lu-CV-EfE" firstAttribute="leading" secondItem="xjt-GQ-4kT" secondAttribute="leading" constant="-10" id="Qdx-Sb-2aj"/>
+                            <constraint firstItem="xjt-GQ-4kT" firstAttribute="top" secondItem="0Lu-CV-EfE" secondAttribute="top" constant="46" id="T4B-Eq-Zpo"/>
+                            <constraint firstItem="0Lu-CV-EfE" firstAttribute="trailing" secondItem="CFO-88-6pb" secondAttribute="trailing" constant="10" id="U40-w7-8Xq"/>
+                            <constraint firstItem="H1d-DV-Owe" firstAttribute="width" secondItem="0Lu-CV-EfE" secondAttribute="width" multiplier="0.6" id="Wq8-HB-qrR"/>
+                            <constraint firstItem="H1d-DV-Owe" firstAttribute="top" secondItem="xjt-GQ-4kT" secondAttribute="bottom" constant="31" id="gGO-A4-ntF"/>
+                            <constraint firstItem="CFO-88-6pb" firstAttribute="centerY" secondItem="0Lu-CV-EfE" secondAttribute="centerY" id="jro-NA-z96"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Lu-CV-EfE"/>
+                    </view>
+                    <connections>
+                        <outlet property="moleculeDescription" destination="H1d-DV-Owe" id="gk4-zI-ni6"/>
+                        <outlet property="moleculeImage" destination="CFO-88-6pb" id="jTj-Ag-R6h"/>
+                        <outlet property="moleculeName" destination="xjt-GQ-4kT" id="4N7-5h-OKV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfo-WU-emY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.4375" y="108.69565217391305"/>
+        </scene>
+    </scenes>
+</document>

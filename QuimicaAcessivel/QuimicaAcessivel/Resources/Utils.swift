@@ -46,15 +46,29 @@ extension simd_float4x4 {
     
 }
 
-extension SCNVector3 {
-    func distanceTo(_ vector: SCNVector3) -> Float {
-        let x0 = x
-        let x1 = vector.x
-        let y0 = y
-        let y1 = vector.y
-        let z0 = z
-        let z1 = vector.z
-        
-        return sqrtf(powf(x1 - x0, 2) + powf(y1 - y0, 2) + powf(z1 - z0, 2))
+protocol Identifiable: class {}
+
+extension UIViewController: Identifiable {}
+
+extension Identifiable where Self: UIViewController {
+    static var storyboardIdentifier: String {
+        return String(describing: self)
+    }
+    static var xibIdentifier: String {
+        return String(describing: self)
+    }
+}
+
+
+extension UIViewController {
+    
+    static func instantiate<T: UIViewController>() -> T {
+        guard let controller = UIStoryboard(name: (T.storyboardIdentifier.replacingOccurrences(of: "Controller", with: "")).replacingOccurrences(of: "View", with: ""), bundle: T.bundle).instantiateViewController(withIdentifier: T.storyboardIdentifier) as? T else {
+            fatalError("failed to create storyBoard/xib")}
+        return controller
+    }
+    
+    static var bundle: Bundle {
+        return Bundle(for: self)
     }
 }

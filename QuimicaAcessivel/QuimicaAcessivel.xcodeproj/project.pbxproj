@@ -19,6 +19,8 @@
 		A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */; };
 		A3AB4B3023D021DA0031B361 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3AB4B2F23D021DA0031B361 /* Main.storyboard */; };
 		A3C6978D23DA8DF500E92EA2 /* Atom+Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C6978C23DA8DF500E92EA2 /* Atom+Movement.swift */; };
+		A3C6979123DF94E300E92EA2 /* MoleculeDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3C6979023DF94E300E92EA2 /* MoleculeDetails.storyboard */; };
+		A3C6979323DF951600E92EA2 /* MoleculeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C6979223DF951600E92EA2 /* MoleculeDetailsViewController.swift */; };
 		A3D7A19E23D019B400C4633B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7A19D23D019B400C4633B /* AppDelegate.swift */; };
 		A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D7A1A623D019B500C4633B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		A3AB4B2D23D021D30031B361 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3AB4B2F23D021DA0031B361 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A3C6978C23DA8DF500E92EA2 /* Atom+Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atom+Movement.swift"; sourceTree = "<group>"; };
+		A3C6979023DF94E300E92EA2 /* MoleculeDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoleculeDetails.storyboard; sourceTree = "<group>"; };
+		A3C6979223DF951600E92EA2 /* MoleculeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeDetailsViewController.swift; sourceTree = "<group>"; };
 		A3D7A19A23D019B400C4633B /* QuimicaAcessivel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuimicaAcessivel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D7A19D23D019B400C4633B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D7A1A623D019B500C4633B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 				A3AB4B2F23D021DA0031B361 /* Main.storyboard */,
 				A3AB4B2923D021920031B361 /* ViewController.swift */,
 				A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */,
+				A3C6979423DF951D00E92EA2 /* MoleculeDetails */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -102,6 +107,15 @@
 				A3C6978C23DA8DF500E92EA2 /* Atom+Movement.swift */,
 			);
 			path = Atom;
+			sourceTree = "<group>";
+		};
+		A3C6979423DF951D00E92EA2 /* MoleculeDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A3C6979023DF94E300E92EA2 /* MoleculeDetails.storyboard */,
+				A3C6979223DF951600E92EA2 /* MoleculeDetailsViewController.swift */,
+			);
+			path = MoleculeDetails;
 			sourceTree = "<group>";
 		};
 		A3D7A19123D019B400C4633B = {
@@ -191,6 +205,7 @@
 			files = (
 				A3AB4B3023D021DA0031B361 /* Main.storyboard in Resources */,
 				A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */,
+				A3C6979123DF94E300E92EA2 /* MoleculeDetails.storyboard in Resources */,
 				A34757FE23D68DC100FFC268 /* art.scnassets in Resources */,
 				A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -209,6 +224,7 @@
 				A3AB4B2723D021390031B361 /* ViewController+ARSessionDelegate.swift in Sources */,
 				A38973F823D929E400315AED /* Utils.swift in Sources */,
 				A38973FC23D94FD200315AED /* AtomCombination.swift in Sources */,
+				A3C6979323DF951600E92EA2 /* MoleculeDetailsViewController.swift in Sources */,
 				A347580023D7EB0900FFC268 /* Atom.swift in Sources */,
 				A347580323D7ECE200FFC268 /* Resources.swift in Sources */,
 				A38973FE23D94FE600315AED /* Molecule.swift in Sources */,

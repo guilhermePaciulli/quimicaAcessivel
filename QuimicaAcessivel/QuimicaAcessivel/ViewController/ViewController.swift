@@ -9,6 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
+import Speech
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
@@ -31,6 +32,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         resetTracking()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        requestForSpeechRecognition()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         session?.pause()
@@ -48,6 +54,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.detectionImages = Set(Resources.referenceImages)
         session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    private func requestForSpeechRecognition() {
+        SFSpeechRecognizer.requestAuthorization { _ in }
     }
     
     

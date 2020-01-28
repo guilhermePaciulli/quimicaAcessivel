@@ -72,3 +72,7 @@ extension UIViewController {
         return Bundle(for: self)
     }
 }
+
+func say(_ string: String) {
+    UIAccessibility.post(notification: .announcement, argument: string)
+}

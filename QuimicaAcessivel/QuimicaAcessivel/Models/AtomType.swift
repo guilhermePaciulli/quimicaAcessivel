@@ -39,6 +39,16 @@ enum AtomType: String, CaseIterable {
         }
     }
     
+    var name: String {
+        switch self {
+        case .hydrogen:
+            return "hidrogênio"
+        case .sodium:
+            return "sódio"
+        }
+    }
+    
+    
     static func displayableAtoms() -> [Atom] {
         return allCases.compactMap { Atom(with: $0) }
     }

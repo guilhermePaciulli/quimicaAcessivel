@@ -32,6 +32,7 @@ extension ViewController: ARSessionDelegate {
         guard atomFound.type != .referenceObject else { return }
         visibleAtoms.append(atomFound)
         atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor)
+        say("Você descobriu \(atomFound.type.name)")
     }
     
     
@@ -60,6 +61,7 @@ extension ViewController: ARSessionDelegate {
                 print(d)
                 if d < minimumDistanceBetweenAtoms {
                     if let molecule = a0.combination(withAtom: a1) {
+                        say("Você descobriu \(molecule.name)")
                         a0.flag = true
                         a1.flag = true
                         let fadeOut = SCNAction.fadeOut(duration: 1)

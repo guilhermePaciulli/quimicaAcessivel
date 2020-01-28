@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A34757FE23D68DC100FFC268 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A34757FD23D68DC100FFC268 /* art.scnassets */; };
 		A347580023D7EB0900FFC268 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34757FF23D7EB0900FFC268 /* Atom.swift */; };
 		A347580323D7ECE200FFC268 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580223D7ECE200FFC268 /* Resources.swift */; };
 		A347580523D91B2D00FFC268 /* AtomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580423D91B2D00FFC268 /* AtomType.swift */; };
@@ -23,10 +22,10 @@
 		A3C6979323DF951600E92EA2 /* MoleculeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C6979223DF951600E92EA2 /* MoleculeDetailsViewController.swift */; };
 		A3D7A19E23D019B400C4633B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D7A19D23D019B400C4633B /* AppDelegate.swift */; };
 		A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D7A1A623D019B500C4633B /* Assets.xcassets */; };
+		C1C150DE23E0B6A200027C0B /* ViewController+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C150DD23E0B6A200027C0B /* ViewController+Accessibility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A34757FD23D68DC100FFC268 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		A34757FF23D7EB0900FFC268 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		A347580223D7ECE200FFC268 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		A347580423D91B2D00FFC268 /* AtomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomType.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		A3D7A19D23D019B400C4633B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3D7A1A623D019B500C4633B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3D7A1AB23D019B500C4633B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1C150DD23E0B6A200027C0B /* ViewController+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Accessibility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +75,7 @@
 				A3AB4B2F23D021DA0031B361 /* Main.storyboard */,
 				A3AB4B2923D021920031B361 /* ViewController.swift */,
 				A3AB4B2623D021390031B361 /* ViewController+ARSessionDelegate.swift */,
+				C1C150DD23E0B6A200027C0B /* ViewController+Accessibility.swift */,
 				A3C6979423DF951D00E92EA2 /* MoleculeDetails */,
 			);
 			path = ViewController;
@@ -95,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				A3D7A1A623D019B500C4633B /* Assets.xcassets */,
-				A34757FD23D68DC100FFC268 /* art.scnassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -206,7 +206,6 @@
 				A3AB4B3023D021DA0031B361 /* Main.storyboard in Resources */,
 				A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */,
 				A3C6979123DF94E300E92EA2 /* MoleculeDetails.storyboard in Resources */,
-				A34757FE23D68DC100FFC268 /* art.scnassets in Resources */,
 				A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +228,7 @@
 				A347580323D7ECE200FFC268 /* Resources.swift in Sources */,
 				A38973FE23D94FE600315AED /* Molecule.swift in Sources */,
 				A3D7A19E23D019B400C4633B /* AppDelegate.swift in Sources */,
+				C1C150DE23E0B6A200027C0B /* ViewController+Accessibility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

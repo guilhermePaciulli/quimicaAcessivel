@@ -49,6 +49,10 @@ enum AtomType: String, CaseIterable {
     }
     
     
+    func sound() -> SCNAudioPlayer? {
+        return self.rawValue.audioForName
+    }
+    
     static func displayableAtoms() -> [Atom] {
         return allCases.compactMap { Atom(with: $0) }
     }

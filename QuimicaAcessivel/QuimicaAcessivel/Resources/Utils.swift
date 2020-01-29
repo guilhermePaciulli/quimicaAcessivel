@@ -73,6 +73,15 @@ extension UIViewController {
     }
 }
 
+extension String {
+
+    var audioForName: SCNAudioPlayer? {
+        guard let audioSource = SCNAudioSource(fileNamed: self) else { return nil }
+        return SCNAudioPlayer(source: audioSource)
+    }
+    
+}
+
 func say(_ string: String) {
     UIAccessibility.post(notification: .announcement, argument: string)
 }

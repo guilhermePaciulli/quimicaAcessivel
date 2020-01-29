@@ -30,6 +30,7 @@ extension ViewController: ARSessionDelegate {
         }
 
         guard atomFound.type != .referenceObject else { return }
+        if visibleAtoms.isEmpty { timer?.invalidate(); focusedAtomsAlert() }
         visibleAtoms.append(atomFound)
         atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor)
         say("Um átomo de \(atomFound.type.name) entrou em foco")

@@ -13,7 +13,23 @@ extension ViewController: AccessibilityManagerDelegate {
     func didChangeQueueState(queue: [String]) {
         guard let molecule = moleculeFound, queue.isEmpty else { return }
         goToDetails(molecule)
-        moleculeFound = nil
+    }
+    
+    func lookingForAtomsAlert() {
+        timer = .scheduledTimer(withTimeInterval: 15, repeats: true, block: { (timer) in
+            say("Procurando por átomos")
+        })
+    }
+    
+    func focusedAtomsAlert() {
+        timer = .scheduledTimer(withTimeInterval: 30, repeats: true, block: { (timer) in
+            guard !self.visibleAtoms.isEmpty else {
+                timer.invalidate()
+                self.lookingForAtomsAlert()
+                return
+            }
+            say("Átomos em foco: \(self.visibleAtoms.reduce("", { "\($0), \($1.type.name)" }))")
+        })
     }
     
 }

@@ -32,7 +32,14 @@ enum Molecule: String, CaseIterable {
     var description: String {
         switch self {
         case .testing:
-            return "Svetlana Alekseyevna Smirnova (née Veresova) (Russian: Светлана Алексеевна Смирнова; born March 10, 1962 in Pskov) is a Russian sport shooter.[2] She won two medals (silver and bronze), as a member of the Soviet Union shooting team, at the 1987 ISSF World Shooting Championships in Budapest, Hungary, and at the 1990 ISSF World Shooting Championships in Moscow, Russia."
+            return "Água (fórmula: H2O) é uma substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio. É abundante no Universo, inclusive na Terra, onde cobre grande parte de sua superfície e é o maior constituinte dos fluidos dos seres vivos. As temperaturas do planeta permitem a ocorrência da água em seus três estados físicos principais."
+        }
+    }
+    
+    var moleculeDescription: String {
+        switch self {
+        case .testing:
+            return "A molécula de água é formada por dois átomos de hidrogênio e um de oxigênio unidos em uma ligação covalente"
         }
     }
     

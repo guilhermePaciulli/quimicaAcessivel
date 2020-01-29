@@ -16,39 +16,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidróxido de carbono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjt-GQ-4kT">
-                                <rect key="frame" x="54" y="46" width="272" height="34"/>
+                                <rect key="frame" x="64" y="35.5" width="272" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1d-DV-Owe">
-                                <rect key="frame" x="74" y="111" width="485" height="142.5"/>
-                                <mutableString key="text">Svetlana Alekseyevna Smirnova (née Veresova) (Russian: Светлана Алексеевна Смирнова; born March 10, 1962 in Pskov) is a Russian sport shooter.[2] She won two medals (silver and bronze), as a member of the Soviet Union shooting team, at the 1987 ISSF World Shooting Championships in Budapest, Hungary, and at the 1990 ISSF World Shooting Championships in Moscow, Russia.</mutableString>
+                                <rect key="frame" x="64" y="100.5" width="485" height="142.5"/>
+                                <string key="text">Svetlana Alekseyevna Smirnova (née Veresova) (Russian: Светлана Алексеевна Смирнова; born March 10, 1962 in Pskov) is a Russian sport shooter.[2] She won two medals (silver and bronze), as a member of the Soviet Union shooting team, at the 1987 ISSF World Shooting Championships in Budapest, Hungary, and at the 1990 ISSF World Shooting Championships in Moscow, Russia.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CFO-88-6pb">
-                                <rect key="frame" x="599.5" y="75.5" width="242.5" height="242"/>
+                                <rect key="frame" x="599.5" y="100.5" width="242.5" height="242.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CFO-88-6pb" secondAttribute="height" multiplier="1:1" id="ivg-d1-SO1"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-2N-ok4">
+                                <rect key="frame" x="788" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="T6l-dQ-qgk"/>
+                                    <constraint firstAttribute="width" secondItem="w7d-2N-ok4" secondAttribute="height" multiplier="1:1" id="W2L-fA-ajL"/>
+                                </constraints>
+                                <state key="normal" image="exit"/>
+                                <connections>
+                                    <action selector="didTapToExit:" destination="Dm9-lp-mrB" eventType="touchUpInside" id="GD8-3o-wbV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29759022887323938" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="CFO-88-6pb" firstAttribute="width" secondItem="0Lu-CV-EfE" secondAttribute="width" multiplier="0.3" id="0Gm-PO-HLN"/>
-                            <constraint firstItem="H1d-DV-Owe" firstAttribute="leading" secondItem="0Lu-CV-EfE" secondAttribute="leading" constant="30" id="Mae-4O-YaH"/>
-                            <constraint firstItem="0Lu-CV-EfE" firstAttribute="leading" secondItem="xjt-GQ-4kT" secondAttribute="leading" constant="-10" id="Qdx-Sb-2aj"/>
-                            <constraint firstItem="xjt-GQ-4kT" firstAttribute="top" secondItem="0Lu-CV-EfE" secondAttribute="top" constant="46" id="T4B-Eq-Zpo"/>
+                            <constraint firstItem="H1d-DV-Owe" firstAttribute="leading" secondItem="xjt-GQ-4kT" secondAttribute="leading" id="2jL-De-UNG"/>
                             <constraint firstItem="0Lu-CV-EfE" firstAttribute="trailing" secondItem="CFO-88-6pb" secondAttribute="trailing" constant="10" id="U40-w7-8Xq"/>
+                            <constraint firstItem="0Lu-CV-EfE" firstAttribute="bottom" secondItem="CFO-88-6pb" secondAttribute="bottom" constant="50" id="WGH-SF-KuC"/>
                             <constraint firstItem="H1d-DV-Owe" firstAttribute="width" secondItem="0Lu-CV-EfE" secondAttribute="width" multiplier="0.6" id="Wq8-HB-qrR"/>
-                            <constraint firstItem="H1d-DV-Owe" firstAttribute="top" secondItem="xjt-GQ-4kT" secondAttribute="bottom" constant="31" id="gGO-A4-ntF"/>
-                            <constraint firstItem="CFO-88-6pb" firstAttribute="centerY" secondItem="0Lu-CV-EfE" secondAttribute="centerY" id="jro-NA-z96"/>
+                            <constraint firstItem="xjt-GQ-4kT" firstAttribute="leading" secondItem="0Lu-CV-EfE" secondAttribute="leading" constant="20" id="ZUK-im-8zH"/>
+                            <constraint firstItem="H1d-DV-Owe" firstAttribute="top" secondItem="xjt-GQ-4kT" secondAttribute="bottom" constant="31.5" id="l0w-Rk-Rrg"/>
+                            <constraint firstItem="w7d-2N-ok4" firstAttribute="top" secondItem="0Lu-CV-EfE" secondAttribute="top" constant="30" id="rBm-72-1sW"/>
+                            <constraint firstItem="xjt-GQ-4kT" firstAttribute="top" secondItem="0Lu-CV-EfE" secondAttribute="top" constant="35.5" id="rob-nw-62M"/>
+                            <constraint firstItem="H1d-DV-Owe" firstAttribute="top" secondItem="CFO-88-6pb" secondAttribute="top" id="t6y-U9-PD0"/>
+                            <constraint firstItem="0Lu-CV-EfE" firstAttribute="trailing" secondItem="w7d-2N-ok4" secondAttribute="trailing" constant="20" id="tpf-b7-g0S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Lu-CV-EfE"/>
                     </view>
                     <connections>
+                        <outlet property="exitButton" destination="w7d-2N-ok4" id="7RE-Za-sIA"/>
                         <outlet property="moleculeDescription" destination="H1d-DV-Owe" id="gk4-zI-ni6"/>
                         <outlet property="moleculeImage" destination="CFO-88-6pb" id="jTj-Ag-R6h"/>
                         <outlet property="moleculeName" destination="xjt-GQ-4kT" id="4N7-5h-OKV"/>
@@ -59,4 +74,7 @@
             <point key="canvasLocation" x="-23.4375" y="108.69565217391305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="exit" width="260" height="253"/>
+    </resources>
 </document>

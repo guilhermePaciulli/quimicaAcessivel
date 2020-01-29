@@ -45,7 +45,7 @@ class AccessibilityManager {
     
     @objc func dequeue() {
         queue.removeFirst()
-        guard !queue.isEmpty, let next = queue.first else { return }
+        guard let next = queue.first else { return }
         UIAccessibility.post(notification: .announcement, argument: next)
     }
     

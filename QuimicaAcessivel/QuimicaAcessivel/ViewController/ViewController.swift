@@ -9,7 +9,6 @@
 import UIKit
 import SceneKit
 import ARKit
-import Speech
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
@@ -21,6 +20,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var visibleAtoms: [Atom] = []
     var session: ARSession? { return sceneView?.session }
     var moleculeFound: Molecule?
+    var timer: Timer?
     
     // MARK:- Life cycle
     override func viewDidLoad() {
@@ -36,12 +36,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        requestForSpeechRecognition()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        session?.pause()
+        lookingForAtomsAlert()
     }
     
     func goToDetails(_ molecule: Molecule) {
@@ -49,7 +44,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         details.molecule = molecule
         details.modalPresentationStyle = .overCurrentContext
         details.modalTransitionStyle = .crossDissolve
-        present(details, animated: true)
+        details.mainViewController = self
+        present(details, animated: true) {
+            self.timer?.invalidate()
+        }
+    }
+    
+    func resetTracking() {
+        atoms.forEach({ $0.flag = false })
+        visibleAtoms = []
+        moleculeFound = nil
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.detectionImages = Set(Resources.referenceImages)
+        session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     // MARK:- Private methods
@@ -58,16 +65,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView?.scene = scene
         sceneView?.delegate = self
         sceneView?.scene.physicsWorld.gravity = SCNVector3(0, 0, 0)
-    }
-    
-    private func resetTracking() {
-        let configuration = ARWorldTrackingConfiguration()
-        configuration.detectionImages = Set(Resources.referenceImages)
-        session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-    }
-    
-    private func requestForSpeechRecognition() {
-        SFSpeechRecognizer.requestAuthorization { _ in }
     }
     
     

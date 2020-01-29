@@ -11,11 +11,11 @@ import SceneKit
 import ARKit
 
 extension UIColor {
-
+    
     func to(color: UIColor, percentage: CGFloat) -> UIColor {
         let from = cgColor.components!
         let toColor = color.cgColor.components!
-
+        
         let color = UIColor(red: from[0] + (toColor[0] - from[0]) * percentage, green: from[1] + (toColor[1] - from[1]) * percentage,
                             blue: from[2] + (toColor[2] - from[2]) * percentage, alpha: from[3] + (toColor[3] - from[3]) * percentage)
         return color
@@ -74,10 +74,17 @@ extension UIViewController {
 }
 
 extension String {
-
+    
     var audioForName: SCNAudioPlayer? {
         guard let audioSource = SCNAudioSource(fileNamed: self) else { return nil }
         return SCNAudioPlayer(source: audioSource)
     }
     
+}
+
+extension SCNAudioPlayer {
+    func withLoop(_ value: Bool) -> SCNAudioPlayer {
+        self.audioSource?.loops = true
+        return self
+    }
 }

@@ -73,12 +73,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A35A447A23DFD82700EF47F9 /* Assets */ = {
+		A35A447A23DFD82700EF47F9 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
 				A35A447823DFD82100EF47F9 /* hydrogen.wav */,
 			);
-			path = Assets;
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		A3AB4B2823D0213F0031B361 /* ViewController */ = {
@@ -108,7 +108,7 @@
 		A3AB4B2C23D021A40031B361 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				A35A447A23DFD82700EF47F9 /* Assets */,
+				A35A447A23DFD82700EF47F9 /* Audio */,
 				A3D7A1A623D019B500C4633B /* Assets.xcassets */,
 			);
 			path = Assets;

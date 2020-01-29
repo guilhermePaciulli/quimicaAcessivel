@@ -52,7 +52,7 @@ enum AtomType: String, CaseIterable {
     
     
     func sound() -> SCNAudioPlayer? {
-        return self.rawValue.audioForName
+        return AtomType.hydrogen.rawValue.audioForName
     }
     
     static func displayableAtoms() -> [Atom] {

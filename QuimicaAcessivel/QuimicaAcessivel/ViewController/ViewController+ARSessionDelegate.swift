@@ -43,7 +43,7 @@ extension ViewController: ARSessionDelegate {
             return
         }
         visibleAtoms.forEach({
-            guard !$0.flag else { return }
+            guard !$0.flag && !$0.isMoving() else { return }
             $0.didUpdateTo(anchor: imageAnchor)
         })
     }
@@ -59,7 +59,6 @@ extension ViewController: ARSessionDelegate {
                     let p2 = a1.atomAnchor?.transform.simd_vector3 else { return }
                                 
                 let d = simd_distance(p1, p2)
-                print(d)
                 if d < minimumDistanceBetweenAtoms {
                     if let molecule = a0.combination(withAtom: a1) {
                         say("Você descobriu \(molecule.name)")

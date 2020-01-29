@@ -46,6 +46,16 @@ extension simd_float4x4 {
     
 }
 
+extension SCNVector3 {
+    
+    static func /(lhs: inout SCNVector3, rhs: Float) {
+        lhs.x /= rhs
+        lhs.y /= rhs
+        lhs.z /= rhs
+    }
+    
+}
+
 protocol Identifiable: class {}
 
 extension UIViewController: Identifiable {}
@@ -76,7 +86,8 @@ extension UIViewController {
 extension String {
     
     var audioForName: SCNAudioPlayer? {
-        guard let audioSource = SCNAudioSource(fileNamed: self) else { return nil }
+        guard let audioSource = SCNAudioSource(fileNamed: "\(self).wav") else { return nil }
+        audioSource.load()
         return SCNAudioPlayer(source: audioSource)
     }
     

@@ -23,11 +23,11 @@ extension Atom {
         
         guard let finalRatio = [widthRatio, heightRatio].min() else { return }
         
-        scene.rootNode.addAudioPlayer(sound)
-        let appearanceAction = SCNAction.scale(to: CGFloat(finalRatio / 2), duration: 0.4)
+        let appearanceAction = SCNAction.scale(to: CGFloat(finalRatio / 2), duration: 1)
         appearanceAction.timingMode = .easeOut
         object.scale = SCNVector3Make(0, 0, 0)
         scene.rootNode.addChildNode(object)
+        scene.rootNode.addAudioPlayer(sound)
         object.runAction(appearanceAction) {
             scene.rootNode.removeAllAudioPlayers()
         }
@@ -40,15 +40,17 @@ extension Atom {
     
     func didUpdateTo(anchor: ARImageAnchor) {
         guard anchor == atomAnchor else { return }
+        let d = length(anchor.transform.simd_vector3 - atomAnchor!.transform.simd_vector3)
         atomAnchor = anchor
         if isMoving() { atomObject?.removeAction(forKey: "movement") }
-        moveTo(newAnchor: anchor)
+        moveTo(newAnchor: anchor, distance: d)
     }
     
-    private func moveTo(newAnchor: ARAnchor, withDurationOf duration: TimeInterval = 0.3) {
+    private func moveTo(newAnchor: ARAnchor, distance: Float) {
         guard let sound = type.sound()?.withLoop(true) else { return }
-        atomScene?.rootNode.addAudioPlayer(sound)
-        let action = SCNAction.move(to: newAnchor.transform.vector3, duration: duration)
+        if  distance > 2 { atomScene?.rootNode.addAudioPlayer(sound) }
+        let action = SCNAction.move(to: newAnchor.transform.vector3, duration: TimeInterval(distance / 30.0))
+        action.timingMode = .easeIn
         runningMovementAction = action
         atomObject?.runAction(action, forKey: "movement") {
             self.atomScene?.rootNode.removeAllAudioPlayers()

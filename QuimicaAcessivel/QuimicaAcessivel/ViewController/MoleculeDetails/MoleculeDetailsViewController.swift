@@ -35,8 +35,8 @@ class MoleculeDetailsViewController: UIViewController, SFSpeechRecognizerDelegat
         moleculeName?.text = m.name
         moleculeDescription?.text = m.description
         moleculeImage?.image = m.image
-        startAudioEngine()
         tapAudioEngineToSpeechRecognition()
+        startAudioEngine()
         setupSpeechRecognition()
     }
     

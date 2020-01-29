@@ -11,6 +11,7 @@
 		A347580323D7ECE200FFC268 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580223D7ECE200FFC268 /* Resources.swift */; };
 		A347580523D91B2D00FFC268 /* AtomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580423D91B2D00FFC268 /* AtomType.swift */; };
 		A35A447923DFD82100EF47F9 /* hydrogen.wav in Resources */ = {isa = PBXBuildFile; fileRef = A35A447823DFD82100EF47F9 /* hydrogen.wav */; };
+		A35A447C23E107B300EF47F9 /* Accessibility+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A447B23E107B300EF47F9 /* Accessibility+Utils.swift */; };
 		A38973F823D929E400315AED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973F723D929E400315AED /* Utils.swift */; };
 		A38973FC23D94FD200315AED /* AtomCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973FB23D94FD200315AED /* AtomCombination.swift */; };
 		A38973FE23D94FE600315AED /* Molecule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973FD23D94FE600315AED /* Molecule.swift */; };
@@ -31,6 +32,7 @@
 		A347580223D7ECE200FFC268 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		A347580423D91B2D00FFC268 /* AtomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomType.swift; sourceTree = "<group>"; };
 		A35A447823DFD82100EF47F9 /* hydrogen.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hydrogen.wav; sourceTree = "<group>"; };
+		A35A447B23E107B300EF47F9 /* Accessibility+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+Utils.swift"; sourceTree = "<group>"; };
 		A38973F723D929E400315AED /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A38973FB23D94FD200315AED /* AtomCombination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomCombination.swift; sourceTree = "<group>"; };
 		A38973FD23D94FE600315AED /* Molecule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Molecule.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				A3D7A19D23D019B400C4633B /* AppDelegate.swift */,
 				A3D7A1AB23D019B500C4633B /* Info.plist */,
 				A38973F723D929E400315AED /* Utils.swift */,
+				A35A447B23E107B300EF47F9 /* Accessibility+Utils.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				A38973F823D929E400315AED /* Utils.swift in Sources */,
 				A38973FC23D94FD200315AED /* AtomCombination.swift in Sources */,
 				A3C6979323DF951600E92EA2 /* MoleculeDetailsViewController.swift in Sources */,
+				A35A447C23E107B300EF47F9 /* Accessibility+Utils.swift in Sources */,
 				A347580023D7EB0900FFC268 /* Atom.swift in Sources */,
 				A347580323D7ECE200FFC268 /* Resources.swift in Sources */,
 				A38973FE23D94FE600315AED /* Molecule.swift in Sources */,

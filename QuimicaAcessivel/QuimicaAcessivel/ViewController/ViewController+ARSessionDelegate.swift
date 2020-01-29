@@ -32,7 +32,7 @@ extension ViewController: ARSessionDelegate {
         guard atomFound.type != .referenceObject else { return }
         visibleAtoms.append(atomFound)
         atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor)
-        say("Você descobriu \(atomFound.type.name)")
+        say("Um átomo de \(atomFound.type.name) entrou em foco")
     }
     
     
@@ -68,11 +68,11 @@ extension ViewController: ARSessionDelegate {
                         a0.atomObject?.runAction(fadeOut)
                         a1.atomObject?.runAction(fadeOut) {
                             DispatchQueue.main.async {
-                                let details: MoleculeDetailsViewController = MoleculeDetailsViewController.instantiate()
-                                details.molecule = molecule
-                                details.modalPresentationStyle = .overCurrentContext
-                                details.modalTransitionStyle = .crossDissolve
-                                self?.present(details, animated: true)
+                                if AccessibilityManager.shared.queue.isEmpty {
+                                    self?.goToDetails(molecule)
+                                } else {
+                                    self?.moleculeFound = molecule
+                                }
                             }
                         }
                     }

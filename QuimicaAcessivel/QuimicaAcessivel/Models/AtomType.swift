@@ -45,6 +45,8 @@ enum AtomType: String, CaseIterable {
             return "hidrogênio"
         case .sodium:
             return "sódio"
+        case .referenceObject:
+            return ""
         }
     }
     

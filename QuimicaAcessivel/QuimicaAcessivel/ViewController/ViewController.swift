@@ -20,11 +20,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var atoms: [Atom] = AtomType.displayableAtoms()
     var visibleAtoms: [Atom] = []
     var session: ARSession? { return sceneView?.session }
+    var moleculeFound: Molecule?
     
     // MARK:- Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSceneView()
+        AccessibilityManager.shared.subscribe(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +42,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         session?.pause()
+    }
+    
+    func goToDetails(_ molecule: Molecule) {
+        let details: MoleculeDetailsViewController = MoleculeDetailsViewController.instantiate()
+        details.molecule = molecule
+        details.modalPresentationStyle = .overCurrentContext
+        details.modalTransitionStyle = .crossDissolve
+        present(details, animated: true)
     }
     
     // MARK:- Private methods

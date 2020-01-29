@@ -8,5 +8,12 @@
 
 import UIKit
 
-extension ViewController {
+extension ViewController: AccessibilityManagerDelegate {
+    
+    func didChangeQueueState(queue: [String]) {
+        guard let molecule = moleculeFound, queue.isEmpty else { return }
+        goToDetails(molecule)
+        moleculeFound = nil
+    }
+    
 }

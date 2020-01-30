@@ -40,16 +40,15 @@ extension Atom {
     
     func didUpdateTo(anchor: ARImageAnchor) {
         guard anchor == atomAnchor else { return }
-        let d = length(anchor.transform.simd_vector3 - atomAnchor!.transform.simd_vector3)
         atomAnchor = anchor
         if isMoving() { atomObject?.removeAction(forKey: "movement") }
-        moveTo(newAnchor: anchor, distance: d)
+        moveTo(newAnchor: anchor)
     }
     
-    private func moveTo(newAnchor: ARAnchor, distance: Float) {
+    private func moveTo(newAnchor: ARAnchor) {
         guard let sound = type.sound()?.withLoop(true) else { return }
-        if  distance > 2 { atomScene?.rootNode.addAudioPlayer(sound) }
-        let action = SCNAction.move(to: newAnchor.transform.vector3, duration: TimeInterval(distance / 30.0))
+        atomScene?.rootNode.addAudioPlayer(sound)
+        let action = SCNAction.move(to: newAnchor.transform.vector3, duration: 0.6)
         action.timingMode = .easeIn
         runningMovementAction = action
         atomObject?.runAction(action, forKey: "movement") {

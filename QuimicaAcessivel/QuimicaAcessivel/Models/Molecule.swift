@@ -21,7 +21,7 @@ enum Molecule: String, CaseIterable {
     var combination: [AtomType] {
         switch self {
         case .testing:
-            return [.hydrogen, .sodium]
+            return [.hydrogen, .sodium, .referenceObject]
         }
     }
     
@@ -43,5 +43,18 @@ enum Molecule: String, CaseIterable {
         }
     }
     
+    
+}
+
+extension Molecule {
+    
+    static func combinationExists(between atoms: [Atom]) -> Bool {
+        let combination = allCases.first(where: { mol in
+            return mol.combination.allSatisfy({ type in
+                return mol.combination.first(where: { $0 == type }) != nil
+            })
+        })
+        return combination != nil
+    }
     
 }

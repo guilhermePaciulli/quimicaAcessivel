@@ -9,7 +9,7 @@
 import SceneKit
 import ARKit
 
-class Atom {
+class Atom: Equatable {
     
     var flag: Bool = false
     var combining: AtomCombination?
@@ -28,17 +28,33 @@ class Atom {
         referenceImage = image
     }
     
-    func combination(withAtom atom: Atom) -> Molecule? {
+    func combineIfPossible(withAtom atom: Atom) -> AtomCombination? {
         guard let combination = combining else {
             combining = AtomCombination(atom1: self, atom2: atom)
-            return combining?.checkCombination()
+            return combining
         }
-        combination.atoms.append(atom.type)
-        return combination.checkCombination()
+        return combination.appendIfPossible(atom)
     }
     
     func isMoving() -> Bool {
-        return atomObject?.hasActions ?? false
+        return atomObject?.action(forKey: "movement") != nil
+    }
+    
+    func isBlinking() -> Bool {
+        return atomObject?.action(forKey: "movement") != nil
+    }
+    
+    func blink() {
+        guard let atom = atomObject?.geometry?.firstMaterial?.diffuse.contents as? UIColor else { return }
+        let blink = SCNAction.animateColor(from: atom, to: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), withDuration: 0.5)
+        let unblink = SCNAction.animateColor(from: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), to: atom, withDuration: 0.5)
+        let pulseSequence = SCNAction.sequence([blink, unblink])
+        let infiniteLoop = SCNAction.repeatForever(pulseSequence)
+        atomObject?.runAction(infiniteLoop, forKey: "blink")
+    }
+    
+    static func == (lhs: Atom, rhs: Atom) -> Bool {
+        return lhs.atomAnchor == rhs.atomAnchor
     }
     
 }

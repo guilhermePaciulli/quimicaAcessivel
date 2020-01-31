@@ -14,7 +14,7 @@ import ARKit
 enum AtomType: String, CaseIterable {
     case hydrogen
     case sodium
-    case referenceObject
+    case chloride
     
     func atomObject() -> SCNNode? {
         switch self {
@@ -30,12 +30,12 @@ enum AtomType: String, CaseIterable {
             let node = SCNNode(geometry: object)
             node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
             return node
-        case .referenceObject:
+        case .chloride:
             let object = SCNSphere(radius: radius())
             object.firstMaterial?.diffuse.contents = UIColor.cyan
             let node = SCNNode(geometry: object)
             node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
-            return SCNNode()
+            return node
         }
     }
     
@@ -45,8 +45,8 @@ enum AtomType: String, CaseIterable {
             return "hidrogênio"
         case .sodium:
             return "sódio"
-        case .referenceObject:
-            return ""
+        case .chloride:
+            return "chloride"
         }
     }
     

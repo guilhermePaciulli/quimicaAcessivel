@@ -13,28 +13,16 @@ class AtomCombination {
     var atoms: [Atom]
     
     init?(atom1: Atom, atom2: Atom) {
-        guard Molecule.combinationExists(between: [atom1, atom2]) else { return nil }
+        guard Molecule.combinationExists(between: [atom1, atom2]) != nil else { return nil }
         atoms = [atom1, atom2]
     }
     
     func getMoleculeIfExists() -> Molecule? {
-        
-        let combination = Molecule.allCases.first(where: { mol in
-            var values: [AtomType?] = mol.combination
-            
-            self.atoms.forEach { (a1) in
-                values = values.map { (a2) -> AtomType? in
-                    if a1.type == a2 {
-                        return nil
-                    }
-                    return a2
-                }
-            }
-            
-            return values.compactMap({ return $0 }).isEmpty
+        return Molecule.allCases.first(where: { mol in
+            let values = mol.combination.sorted(by: { $0.name > $1.name })
+            let atoms = self.atoms.map({ $0.type }).sorted(by: { $0.name > $1.name })
+            return values == atoms
         })
-        
-        return combination
     }
     
     func isCombining() -> Bool {
@@ -42,9 +30,18 @@ class AtomCombination {
     }
     
     func appendIfPossible(_ atom: Atom) -> AtomCombination? {
-        guard Molecule.combinationExists(between: atoms + [atom]) else { return nil }
+        guard let possible = Molecule.combinationExists(between: atoms + [atom]) else { return nil }
+        if possible.combination.histogram[atom.type] ?? -1 > atoms.filter({ $0.type == atom.type }).count {
+            atoms.append(atom)
+        }
         return self
     }
     
     
+}
+
+extension Array where Element: Hashable {
+    var histogram: [Element: Int] {
+        return self.reduce(into: [:]) { counts, elem in counts[elem, default: 0] += 1 }
+    }
 }

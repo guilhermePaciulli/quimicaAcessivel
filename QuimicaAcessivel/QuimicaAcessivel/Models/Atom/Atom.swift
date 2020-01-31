@@ -29,11 +29,15 @@ class Atom: Equatable {
     }
     
     func combineIfPossible(withAtom atom: Atom) -> AtomCombination? {
-        guard let combination = combining else {
+        if let otherAtomCombination = atom.combining {
+            combining = otherAtomCombination.appendIfPossible(atom)
+            return otherAtomCombination
+        } else if let combination = combining {
+            return combination.appendIfPossible(atom)
+        } else {
             combining = AtomCombination(atom1: self, atom2: atom)
             return combining
         }
-        return combination.appendIfPossible(atom)
     }
     
     func isMoving() -> Bool {
@@ -41,7 +45,7 @@ class Atom: Equatable {
     }
     
     func isBlinking() -> Bool {
-        return atomObject?.action(forKey: "movement") != nil
+        return atomObject?.action(forKey: "blink") != nil
     }
     
     func blink() {

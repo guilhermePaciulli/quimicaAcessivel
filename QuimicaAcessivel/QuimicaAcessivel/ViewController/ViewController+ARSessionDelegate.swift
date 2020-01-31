@@ -29,7 +29,6 @@ extension ViewController: ARSessionDelegate {
             return
         }
         
-        guard atomFound.type != .referenceObject else { return }
         if visibleAtoms.isEmpty { timer?.invalidate(); focusedAtomsAlert() }
         visibleAtoms.append(atomFound)
         atomFound.initializeAtom(inScene: worldScene, withAnchor: imageAnchor)
@@ -64,9 +63,12 @@ extension ViewController: ARSessionDelegate {
                 guard let combination = a0.combineIfPossible(withAtom: a1) else { return }
                 if d < minimumDistanceBetweenAtoms {
                     if combination.isCombining() {
+                        if combination.atoms.allSatisfy({ !$0.flag }) {
+                            let names = combination.atoms.reduce("", { $0 + ", \($1.type.name)" })
+                            say("Você está perto de descobrir uma combinação entre \(names)")
+                        }
                         combination.atoms.forEach({
                             guard !$0.isBlinking() else { return }
-                            $0.flag = true
                             $0.blink()
                         })
                     }
@@ -87,10 +89,10 @@ extension ViewController: ARSessionDelegate {
             if let last = atoms.last, $0 == last {
                 $0.atomObject?.runAction(fadeOut) {
                     DispatchQueue.main.async {
-                        if AccessibilityManager.shared.queue.isEmpty {
-                            self.goToDetails(molecule)
-                        } else {
+                        if AccessibilityManager.shared.hasQueue() {
                             self.moleculeFound = molecule
+                        } else {
+                            self.goToDetails(molecule)
                         }
                     }
                 }

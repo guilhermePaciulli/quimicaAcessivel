@@ -9,6 +9,7 @@
 import UIKit
 
 func say(_ string: String) {
+    guard UIAccessibility.isVoiceOverRunning else { return }
     AccessibilityManager.shared.enqueue(string)
 }
 
@@ -47,6 +48,11 @@ class AccessibilityManager {
         queue.removeFirst()
         guard let next = queue.first else { return }
         UIAccessibility.post(notification: .announcement, argument: next)
+    }
+    
+    func hasQueue() -> Bool {
+        guard UIAccessibility.isVoiceOverRunning else { return false }
+        return !queue.isEmpty
     }
     
     

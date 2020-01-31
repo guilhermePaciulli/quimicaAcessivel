@@ -51,6 +51,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func resetTracking() {
+        atoms = AtomType.displayableAtoms()
         atoms.forEach({ $0.flag = false })
         visibleAtoms = []
         moleculeFound = nil

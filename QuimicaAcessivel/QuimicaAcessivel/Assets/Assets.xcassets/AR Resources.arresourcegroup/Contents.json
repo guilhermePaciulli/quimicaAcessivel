@@ -5,10 +5,10 @@
   },
   "resources" : [
     {
-      "filename" : "hydrogen.arreferenceimage"
+      "filename" : "chloride.arreferenceimage"
     },
     {
-      "filename" : "referenceObject.arreferenceimage"
+      "filename" : "hydrogen.arreferenceimage"
     },
     {
       "filename" : "sodium.arreferenceimage"

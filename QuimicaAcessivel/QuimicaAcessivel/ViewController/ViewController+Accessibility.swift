@@ -22,7 +22,7 @@ extension ViewController: AccessibilityManagerDelegate {
     }
     
     func focusedAtomsAlert() {
-        timer = .scheduledTimer(withTimeInterval: 30, repeats: true, block: { (timer) in
+        timer = .scheduledTimer(withTimeInterval: 15, repeats: true, block: { (timer) in
             guard !self.visibleAtoms.isEmpty else {
                 timer.invalidate()
                 self.lookingForAtomsAlert()

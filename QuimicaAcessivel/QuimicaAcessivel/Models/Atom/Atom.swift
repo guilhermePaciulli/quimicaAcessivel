@@ -40,6 +40,21 @@ class Atom: Equatable {
         }
     }
     
+    func uncombine(atom: Atom) -> Bool {
+        guard let combination = combining, combination.checkExistence(ofAtom: atom) else { return false }
+        combination.atoms.removeAll(where: {
+            if $0 == atom {
+                return true
+            }
+            return false
+        })
+        if combination.atoms.count == 1 {
+            combining = nil
+            atom.combining = nil
+        }
+        return true
+    }
+    
     func isMoving() -> Bool {
         return atomObject?.action(forKey: "movement") != nil
     }

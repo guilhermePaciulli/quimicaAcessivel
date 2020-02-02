@@ -60,25 +60,31 @@ extension ViewController: ARSessionDelegate {
                 
                 let d = simd_distance(p1, p2)
                 
-                guard let combination = a0.combineIfPossible(withAtom: a1) else { return }
                 if d < minimumDistanceBetweenAtoms {
-                    if combination.isCombining() {
-                        if combination.atoms.allSatisfy({ !$0.flag }) {
-                            let names = combination.atoms.reduce("", { $0 + ", \($1.type.name)" })
-                            say("Você está perto de descobrir uma combinação entre \(names)")
-                        }
-                        combination.atoms.forEach({
-                            guard !$0.isBlinking() else { return }
-                            $0.blink()
-                        })
-                    }
-                    if let molecule = combination.getMoleculeIfExists() {
-                        didFoundCombination(ofMolecule: molecule, betweenAtoms: combination.atoms)
-                    }
+                    proximityDetected(between: a0, and: a1)
                 } else {
+                    distanceDetected(between: a0, and: a1)
                 }
             })
         })
+    }
+    
+    
+    func proximityDetected(between atomA: Atom, and atomB: Atom) {
+        guard let combination = atomA.combineIfPossible(withAtom: atomB) else { return }
+        if let molecule = combination.getMoleculeIfExists() {
+            didFoundCombination(ofMolecule: molecule, betweenAtoms: combination.atoms)
+        } else if combination.isCombining() && combination.atoms.allSatisfy({ !$0.isBlinking() }) {
+            let names = combination.atoms.reduce("", { $0 + ", \($1.type.name)" })
+            say("Você está perto de descobrir uma combinação entre os átomos \(names)")
+            combination.atoms.forEach({ $0.blink() })
+        }
+    }
+    
+    func distanceDetected(between atomA: Atom, and atomB: Atom) {
+        if atomA.uncombine(atom: atomB) {
+            say("Os átomos \(atomA.type.name) e \(atomB.type.name) foram distanciados")
+        }
     }
     
     func didFoundCombination(ofMolecule molecule: Molecule, betweenAtoms atoms: [Atom]) {
@@ -101,17 +107,4 @@ extension ViewController: ARSessionDelegate {
             $0.atomObject?.runAction(fadeOut)
         })
     }
-    
-    func removeUnvisibleAtoms(inRenderer renderer: SCNSceneRenderer) {
-        visibleAtoms = visibleAtoms.compactMap({
-            guard let camera = self.sceneView?.pointOfView, let object = $0.atomObject else { return nil }
-            guard renderer.isNode(object, insideFrustumOf: camera) else {
-                say("O átomo \($0.type.name) saiu de foco")
-                return nil
-            }
-            return $0
-        })
-    }
-    
-    
 }

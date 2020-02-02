@@ -29,7 +29,7 @@ extension SCNAction {
         return SCNAction.customAction(duration: duration, action: { (node, elapsedTime) in
             let percentage = elapsedTime / CGFloat(duration)
             node.geometry?.firstMaterial?.diffuse.contents = toColor.to(color: color, percentage: percentage)
-        })
+        })        
     }
     
 }

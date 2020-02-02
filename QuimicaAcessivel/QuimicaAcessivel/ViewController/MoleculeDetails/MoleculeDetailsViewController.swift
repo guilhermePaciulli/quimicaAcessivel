@@ -27,7 +27,7 @@ class MoleculeDetailsViewController: UIViewController {
         moleculeImage?.image = m.image
         moleculeImage?.accessibilityLabel = m.moleculeDescription
         moleculeImage?.isAccessibilityElement = true
-        exitButton?.accessibilityLabel = "Botão sair"
+        exitButton?.accessibilityLabel = "Sair"
     }
     
     @IBAction func didTapToExit(_ sender: Any) {

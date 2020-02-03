@@ -17,25 +17,21 @@ enum AtomType: String, CaseIterable {
     case chloride
     
     func atomObject() -> SCNNode? {
+        let object = SCNSphere(radius: radius())
+        object.firstMaterial?.diffuse.contents = color
+        let node = SCNNode(geometry: object)
+        node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
+        return node
+    }
+    
+    var color: UIColor {
         switch self {
         case .hydrogen:
-            let object = SCNSphere(radius: radius())
-            object.firstMaterial?.diffuse.contents = UIColor.red
-            let node = SCNNode(geometry: object)
-            node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
-            return node
+            return .red
         case .sodium:
-            let object = SCNSphere(radius: radius())
-            object.firstMaterial?.diffuse.contents = UIColor.blue
-            let node = SCNNode(geometry: object)
-            node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
-            return node
+            return .blue
         case .chloride:
-            let object = SCNSphere(radius: radius())
-            object.firstMaterial?.diffuse.contents = UIColor.cyan
-            let node = SCNNode(geometry: object)
-            node.physicsBody = SCNPhysicsBody(type: .static, shape: SCNPhysicsShape(geometry: object, options: nil))
-            return node
+            return .green
         }
     }
     

@@ -44,6 +44,9 @@ class Atom: Equatable {
         guard let combination = combining, combination.checkExistence(ofAtom: atom) else { return false }
         combination.atoms.removeAll(where: {
             if $0 == atom {
+                let stop = SCNAction.animateColor(from: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), to: type.color, withDuration: 0.5)
+                atomObject?.removeAction(forKey: "blink")
+                atomObject?.runAction(stop)
                 return true
             }
             return false
@@ -64,9 +67,8 @@ class Atom: Equatable {
     }
     
     func blink() {
-        guard let atom = atomObject?.geometry?.firstMaterial?.diffuse.contents as? UIColor else { return }
-        let blink = SCNAction.animateColor(from: atom, to: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), withDuration: 0.5)
-        let unblink = SCNAction.animateColor(from: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), to: atom, withDuration: 0.5)
+        let blink = SCNAction.animateColor(from: type.color, to: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), withDuration: 0.5)
+        let unblink = SCNAction.animateColor(from: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), to: type.color, withDuration: 0.5)
         let pulseSequence = SCNAction.sequence([blink, unblink])
         let infiniteLoop = SCNAction.repeatForever(pulseSequence)
         atomObject?.runAction(infiniteLoop, forKey: "blink")

@@ -40,24 +40,6 @@ class Atom: Equatable {
         }
     }
     
-    func uncombine(atom: Atom) -> Bool {
-        guard let combination = combining, combination.checkExistence(ofAtom: atom) else { return false }
-        combination.atoms.removeAll(where: {
-            if $0 == atom {
-                let stop = SCNAction.animateColor(from: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), to: type.color, withDuration: 0.5)
-                atomObject?.removeAction(forKey: "blink")
-                atomObject?.runAction(stop)
-                return true
-            }
-            return false
-        })
-        if combination.atoms.count == 1 {
-            combining = nil
-            atom.combining = nil
-        }
-        return true
-    }
-    
     func isMoving() -> Bool {
         return atomObject?.action(forKey: "movement") != nil
     }
@@ -72,6 +54,11 @@ class Atom: Equatable {
         let pulseSequence = SCNAction.sequence([blink, unblink])
         let infiniteLoop = SCNAction.repeatForever(pulseSequence)
         atomObject?.runAction(infiniteLoop, forKey: "blink")
+    }
+    
+    func stopBlinking() {
+        atomObject?.removeAction(forKey: "blink")
+        atomObject?.geometry?.firstMaterial?.diffuse.contents = type.color
     }
     
     static func == (lhs: Atom, rhs: Atom) -> Bool {

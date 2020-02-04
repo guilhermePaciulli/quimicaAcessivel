@@ -37,10 +37,6 @@ class AtomCombination {
         return self
     }
     
-    func checkExistence(ofAtom atom: Atom) -> Bool {
-        return atoms.first(where: { $0 == atom }) != nil
-    }
-    
 }
 
 extension Array where Element: Hashable {

@@ -82,7 +82,20 @@ extension ViewController: ARSessionDelegate {
     }
     
     func distanceDetected(between atomA: Atom, and atomB: Atom) {
-        if atomA.uncombine(atom: atomB) {
+        guard let cA = atomA.combining, let cB = atomB.combining else { return }
+        
+        if cA === cB {
+            cA.atoms.removeAll(where: {
+                if $0 == atomA || $0 == atomB {
+                    $0.stopBlinking()
+                    return true
+                }
+                return false
+            })
+            if cA.atoms.isEmpty {
+                atomA.combining = nil
+                atomB.combining = nil
+            }
             say("Os átomos \(atomA.type.name) e \(atomB.type.name) foram distanciados")
         }
     }

@@ -30,7 +30,8 @@ class AtomCombination {
     }
     
     func appendIfPossible(_ atom: Atom) -> AtomCombination? {
-        guard let possible = Molecule.combinationExists(between: atoms + [atom]) else { return nil }
+        guard let possible = Molecule.combinationExists(between: atoms + [atom]),
+            atoms.allSatisfy({ !($0 === atom) }) else { return nil }
         if possible.combination.histogram[atom.type] ?? -1 > atoms.filter({ $0.type == atom.type }).count {
             atoms.append(atom)
         }

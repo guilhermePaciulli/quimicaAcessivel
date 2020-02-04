@@ -9,19 +9,19 @@
 import ARKit
 
 enum Molecule: String, CaseIterable {
-    case testing
+    case water
     
     var name: String {
         switch self {
-        case .testing:
-            return "Hidróxido de carbono"
+        case .water:
+            return "Água"
         }
     }
     
     var combination: [AtomType] {
         switch self {
-        case .testing:
-            return [.hydrogen, .sodium, .chloride]
+        case .water:
+            return [.hydrogen, .hydrogen, .oxygen]
         }
     }
     
@@ -31,14 +31,14 @@ enum Molecule: String, CaseIterable {
     
     var description: String {
         switch self {
-        case .testing:
+        case .water:
             return "Água (fórmula: H2O) é uma substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio. É abundante no Universo, inclusive na Terra, onde cobre grande parte de sua superfície e é o maior constituinte dos fluidos dos seres vivos. As temperaturas do planeta permitem a ocorrência da água em seus três estados físicos principais."
         }
     }
     
     var moleculeDescription: String {
         switch self {
-        case .testing:
+        case .water:
             return "A molécula de água é formada por dois átomos de hidrogênio e um de oxigênio unidos em uma ligação covalente"
         }
     }

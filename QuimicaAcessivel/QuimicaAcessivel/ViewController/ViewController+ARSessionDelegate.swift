@@ -53,7 +53,7 @@ extension ViewController: ARSessionDelegate {
             guard !a0.isMoving(), !a0.flag else { return }
             
             self?.visibleAtoms.forEach({ a1 in
-                guard !a1.isMoving(), !(a1 === a0), !a0.flag else { return }
+                guard !a1.isMoving(), !(a1 === a0), !a1.flag else { return }
                 
                 guard let p1 = a0.atomAnchor?.transform.simd_vector3,
                     let p2 = a1.atomAnchor?.transform.simd_vector3 else { return }
@@ -103,7 +103,9 @@ extension ViewController: ARSessionDelegate {
     func didFoundCombination(ofMolecule molecule: Molecule, betweenAtoms atoms: [Atom]) {
         say("Você descobriu \(molecule.name)")
         let fadeOut = SCNAction.fadeOut(duration: 1)
+        timer?.invalidate()
         atoms.forEach({
+            $0.stopBlinking()
             $0.flag = true
             if let last = atoms.last, $0 == last {
                 $0.atomObject?.runAction(fadeOut) {

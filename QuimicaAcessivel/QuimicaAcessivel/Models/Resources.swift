@@ -19,6 +19,9 @@ class Resources {
         return Array(referenceImages)
     }()
     
+    static func getReferenceImage(withName name: String) -> ARReferenceImage? {
+        return referenceImages.first(where: { $0.name == name })
+    }
 }
 
 struct MovementInfo {

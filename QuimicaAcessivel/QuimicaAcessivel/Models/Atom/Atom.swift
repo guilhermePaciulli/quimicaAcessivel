@@ -28,14 +28,20 @@ class Atom: Equatable {
         referenceImage = image
     }
     
+    init?(with type: AtomType, andReferenceImage string: String) {
+        self.type = type
+        guard let image = Resources.getReferenceImage(withName: string) else {
+            return nil
+        }
+        referenceImage = image
+    }
+    
     func combineIfPossible(withAtom atom: Atom) -> AtomCombination? {
-        if let otherAtomCombination = atom.combining {
-            combining = otherAtomCombination.appendIfPossible(atom)
-            return otherAtomCombination
-        } else if let combination = combining {
+        if let combination = combining {
             return combination.appendIfPossible(atom)
         } else {
             combining = AtomCombination(atom1: self, atom2: atom)
+            atom.combining = combining
             return combining
         }
     }
@@ -49,8 +55,8 @@ class Atom: Equatable {
     }
     
     func blink() {
-        let blink = SCNAction.animateColor(from: type.color, to: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), withDuration: 0.5)
-        let unblink = SCNAction.animateColor(from: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), to: type.color, withDuration: 0.5)
+        let blink = SCNAction.fadeOut(duration: 0.5)
+        let unblink = SCNAction.fadeIn(duration: 0.5)
         let pulseSequence = SCNAction.sequence([blink, unblink])
         let infiniteLoop = SCNAction.repeatForever(pulseSequence)
         atomObject?.runAction(infiniteLoop, forKey: "blink")
@@ -58,7 +64,7 @@ class Atom: Equatable {
     
     func stopBlinking() {
         atomObject?.removeAction(forKey: "blink")
-        atomObject?.geometry?.firstMaterial?.diffuse.contents = type.color
+        atomObject?.runAction(SCNAction.fadeIn(duration: 0.5))
     }
     
     static func == (lhs: Atom, rhs: Atom) -> Bool {

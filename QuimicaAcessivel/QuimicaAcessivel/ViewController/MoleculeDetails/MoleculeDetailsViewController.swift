@@ -23,16 +23,22 @@ class MoleculeDetailsViewController: UIViewController {
         guard let m = molecule else { return }
         
         moleculeName?.text = m.name
-        moleculeDescription?.text = m.description
+        moleculeName?.isAccessibilityElement = false
+        moleculeDescription?.text = m.moleculeDescription
+        moleculeDescription?.isAccessibilityElement = false
         moleculeImage?.image = m.image
-        moleculeImage?.accessibilityLabel = m.moleculeDescription
-        moleculeImage?.isAccessibilityElement = true
-        exitButton?.accessibilityLabel = "Sair"
+        moleculeImage?.isAccessibilityElement = false
+        exitButton?.accessibilityLabel = textDescription
     }
     
     @IBAction func didTapToExit(_ sender: Any) {
         dismiss(animated: true) {
             self.mainViewController?.resetTracking()
         }
+    }
+    
+    var textDescription: String {
+        guard let m = molecule else { return "" }
+        return "Informações sobre \(m.name). Toque duas vezes para sair. \(m.moleculeDescription)"
     }
 }

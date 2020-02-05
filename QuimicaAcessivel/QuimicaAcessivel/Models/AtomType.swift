@@ -13,8 +13,11 @@ import ARKit
 
 enum AtomType: String, CaseIterable {
     case hydrogen
-//    case sodium
+    case sodium
     case oxygen
+    case chloride
+    case potassium
+    case fluoride
     
     func atomObject() -> SCNNode? {
         let object = SCNSphere(radius: radius())
@@ -28,12 +31,16 @@ enum AtomType: String, CaseIterable {
         switch self {
         case .hydrogen:
             return .white
-//        case .sodium:
-//            return .gray
-//        case .chloride:
-//            return .green
+        case .sodium:
+            return .gray
+        case .chloride:
+            return .green
         case .oxygen:
-            return .blue
+            return .red
+        case .potassium:
+            return .purple
+        case .fluoride:
+            return .yellow
         }
     }
     
@@ -41,12 +48,16 @@ enum AtomType: String, CaseIterable {
         switch self {
         case .hydrogen:
             return "hidrogênio"
-//        case .sodium:
-//            return "sódio"
-//        case .chloride:
-//            return "cloro"
+        case .sodium:
+            return "sódio"
+        case .chloride:
+            return "cloro"
         case .oxygen:
             return "oxigênio"
+        case .potassium:
+            return "potássio"
+        case .fluoride:
+            return "flúor"
         }
     }
     

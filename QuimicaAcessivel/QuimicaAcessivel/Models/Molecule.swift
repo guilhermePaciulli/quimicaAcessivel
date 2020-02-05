@@ -10,11 +10,23 @@ import ARKit
 
 enum Molecule: String, CaseIterable {
     case water
+    case potassiumChloride
+    case hydrochloricAcid
+    case potassiumFluoride
+    case hydrofluoricAcid
     
     var name: String {
         switch self {
         case .water:
             return "Água"
+        case .potassiumChloride:
+            return "Cloreto de potássio"
+        case .hydrochloricAcid:
+            return "Ácido clorídrico"
+        case .potassiumFluoride:
+            return "Fluoreto de potássio"
+        case .hydrofluoricAcid:
+            return "Ácido fluorídrico"
         }
     }
     
@@ -22,6 +34,14 @@ enum Molecule: String, CaseIterable {
         switch self {
         case .water:
             return [.hydrogen, .hydrogen, .oxygen]
+        case .potassiumChloride:
+            return [.chloride, .potassium]
+        case .hydrochloricAcid:
+            return [.hydrogen, .chloride]
+        case .potassiumFluoride:
+            return [.fluoride, .potassium]
+        case .hydrofluoricAcid:
+            return [.hydrogen, .fluoride]
         }
     }
     
@@ -29,17 +49,18 @@ enum Molecule: String, CaseIterable {
         return UIImage(named: self.rawValue)
     }
     
-    var description: String {
-        switch self {
-        case .water:
-            return "Água (fórmula: H2O) é uma substância química cujas moléculas são formadas por dois átomos de hidrogênio e um de oxigênio. É abundante no Universo, inclusive na Terra, onde cobre grande parte de sua superfície e é o maior constituinte dos fluidos dos seres vivos. As temperaturas do planeta permitem a ocorrência da água em seus três estados físicos principais."
-        }
-    }
-    
     var moleculeDescription: String {
         switch self {
         case .water:
-            return "A molécula de água é formada por dois átomos de hidrogênio e um de oxigênio unidos em uma ligação covalente"
+            return "A molécula de água é constituída por dois átomos de hidrogênio ligados a um de oxigênio, com uma estrutura angular. O átomo de oxigênio partilha dois dos seus seis elétrons de valência com os átomos de hidrogênio para formar as ligações covalentes entre oxigênio e hidrogênio."
+        case .potassiumChloride:
+            return "Cloreto de potássio é um composto inorgânico salino, de fórmula química KCl. É formado por cloreto e o potássio."
+        case .hydrochloricAcid:
+            return "O ácido clorídrico é formado pelo gás cloreto de hidrogênio (HCl) dissolvido em água, numa proporção de cerca de 37% do gás. É um ácido inorgânico forte, líquido levemente amarelado, em que seus cátions H+ são facilmente ionizáveis na solução."
+        case .potassiumFluoride:
+            return "O fluoreto de potássio é o composto químico com a fórmula KF. Após o fluoreto de hidrogênio, o KF é a fonte primária do íon fluoreto para aplicações na fabricação e na química. O fluoreto de potássio é preparado dissolvendo o carbonato de potássio em ácido fluorídrico."
+        case .hydrofluoricAcid:
+            return "O ácido fluorídrico tem como fórmula HF. Ele é composto de um átomo de flúor e um de hidrogênio, conectados por uma ligação covalente. É um líquido incolor, fumegante, com ponto de ebulição de 20 ºC sob pressão normal. Em condições ambientes onde a temperatura é de 25 ºC, ele torna-se um gás."
         }
     }
     

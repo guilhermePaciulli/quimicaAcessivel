@@ -5,6 +5,12 @@
   },
   "resources" : [
     {
+      "filename" : "chloride.arreferenceimage"
+    },
+    {
+      "filename" : "fluoride.arreferenceimage"
+    },
+    {
       "filename" : "hydrogen.arreferenceimage"
     },
     {
@@ -12,6 +18,12 @@
     },
     {
       "filename" : "oxygen.arreferenceimage"
+    },
+    {
+      "filename" : "potassium.arreferenceimage"
+    },
+    {
+      "filename" : "sodium.arreferenceimage"
     }
   ]
 }

@@ -15,6 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-2N-ok4">
+                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
+                                <connections>
+                                    <action selector="didTapToExit:" destination="Dm9-lp-mrB" eventType="touchUpInside" id="GD8-3o-wbV"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidróxido de carbono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjt-GQ-4kT">
                                 <rect key="frame" x="64" y="35.5" width="272" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
@@ -34,17 +40,6 @@
                                     <constraint firstAttribute="width" secondItem="CFO-88-6pb" secondAttribute="height" multiplier="1:1" id="ivg-d1-SO1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7d-2N-ok4">
-                                <rect key="frame" x="788" y="30" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="T6l-dQ-qgk"/>
-                                    <constraint firstAttribute="width" secondItem="w7d-2N-ok4" secondAttribute="height" multiplier="1:1" id="W2L-fA-ajL"/>
-                                </constraints>
-                                <state key="normal" image="exit"/>
-                                <connections>
-                                    <action selector="didTapToExit:" destination="Dm9-lp-mrB" eventType="touchUpInside" id="GD8-3o-wbV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29759022887323938" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -53,12 +48,14 @@
                             <constraint firstItem="0Lu-CV-EfE" firstAttribute="trailing" secondItem="CFO-88-6pb" secondAttribute="trailing" constant="10" id="U40-w7-8Xq"/>
                             <constraint firstItem="0Lu-CV-EfE" firstAttribute="bottom" secondItem="CFO-88-6pb" secondAttribute="bottom" constant="50" id="WGH-SF-KuC"/>
                             <constraint firstItem="H1d-DV-Owe" firstAttribute="width" secondItem="0Lu-CV-EfE" secondAttribute="width" multiplier="0.6" id="Wq8-HB-qrR"/>
+                            <constraint firstItem="w7d-2N-ok4" firstAttribute="centerX" secondItem="0Lu-CV-EfE" secondAttribute="centerX" id="YUG-mo-RhH"/>
                             <constraint firstItem="xjt-GQ-4kT" firstAttribute="leading" secondItem="0Lu-CV-EfE" secondAttribute="leading" constant="20" id="ZUK-im-8zH"/>
+                            <constraint firstItem="w7d-2N-ok4" firstAttribute="centerY" secondItem="0Lu-CV-EfE" secondAttribute="centerY" id="bYk-e4-Vj1"/>
+                            <constraint firstItem="w7d-2N-ok4" firstAttribute="width" secondItem="0Lu-CV-EfE" secondAttribute="width" id="iSO-ti-D4e"/>
+                            <constraint firstItem="w7d-2N-ok4" firstAttribute="height" secondItem="0Lu-CV-EfE" secondAttribute="height" id="imi-x3-DLb"/>
                             <constraint firstItem="H1d-DV-Owe" firstAttribute="top" secondItem="xjt-GQ-4kT" secondAttribute="bottom" constant="31.5" id="l0w-Rk-Rrg"/>
-                            <constraint firstItem="w7d-2N-ok4" firstAttribute="top" secondItem="0Lu-CV-EfE" secondAttribute="top" constant="30" id="rBm-72-1sW"/>
                             <constraint firstItem="xjt-GQ-4kT" firstAttribute="top" secondItem="0Lu-CV-EfE" secondAttribute="top" constant="35.5" id="rob-nw-62M"/>
                             <constraint firstItem="H1d-DV-Owe" firstAttribute="top" secondItem="CFO-88-6pb" secondAttribute="top" id="t6y-U9-PD0"/>
-                            <constraint firstItem="0Lu-CV-EfE" firstAttribute="trailing" secondItem="w7d-2N-ok4" secondAttribute="trailing" constant="20" id="tpf-b7-g0S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Lu-CV-EfE"/>
                     </view>
@@ -74,7 +71,4 @@
             <point key="canvasLocation" x="-23.4375" y="108.69565217391305"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="exit" width="260" height="253"/>
-    </resources>
 </document>

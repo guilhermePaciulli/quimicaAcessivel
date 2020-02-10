@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Group 6.png"
+      "filename" : "potassium.png"
     }
   ],
   "info" : {
@@ -10,7 +10,7 @@
     "author" : "xcode"
   },
   "properties" : {
-    "width" : 9.5551257253384918,
+    "width" : 9.3617021276595747,
     "unit" : "centimeters"
   }
 }

@@ -37,8 +37,8 @@ class Atom: Equatable {
     }
     
     func combineIfPossible(withAtom atom: Atom) -> AtomCombination? {
-        if let combination = combining {
-            return combination.appendIfPossible(atom)
+        if let combination = combining?.appendIfPossible(atom) {
+            return combination
         } else {
             combining = AtomCombination(atom1: self, atom2: atom)
             atom.combining = combining

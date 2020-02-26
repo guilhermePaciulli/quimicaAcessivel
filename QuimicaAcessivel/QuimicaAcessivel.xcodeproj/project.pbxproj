@@ -10,7 +10,6 @@
 		A347580023D7EB0900FFC268 /* Atom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34757FF23D7EB0900FFC268 /* Atom.swift */; };
 		A347580323D7ECE200FFC268 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580223D7ECE200FFC268 /* Resources.swift */; };
 		A347580523D91B2D00FFC268 /* AtomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347580423D91B2D00FFC268 /* AtomType.swift */; };
-		A35A447923DFD82100EF47F9 /* hydrogen.wav in Resources */ = {isa = PBXBuildFile; fileRef = A35A447823DFD82100EF47F9 /* hydrogen.wav */; };
 		A35A447C23E107B300EF47F9 /* Accessibility+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A447B23E107B300EF47F9 /* Accessibility+Utils.swift */; };
 		A38973F823D929E400315AED /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973F723D929E400315AED /* Utils.swift */; };
 		A38973FC23D94FD200315AED /* AtomCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38973FB23D94FD200315AED /* AtomCombination.swift */; };
@@ -31,7 +30,6 @@
 		A34757FF23D7EB0900FFC268 /* Atom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atom.swift; sourceTree = "<group>"; };
 		A347580223D7ECE200FFC268 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		A347580423D91B2D00FFC268 /* AtomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomType.swift; sourceTree = "<group>"; };
-		A35A447823DFD82100EF47F9 /* hydrogen.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hydrogen.wav; sourceTree = "<group>"; };
 		A35A447B23E107B300EF47F9 /* Accessibility+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Accessibility+Utils.swift"; sourceTree = "<group>"; };
 		A38973F723D929E400315AED /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A38973FB23D94FD200315AED /* AtomCombination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomCombination.swift; sourceTree = "<group>"; };
@@ -73,14 +71,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A35A447A23DFD82700EF47F9 /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				A35A447823DFD82100EF47F9 /* hydrogen.wav */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
 		A3AB4B2823D0213F0031B361 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +98,6 @@
 		A3AB4B2C23D021A40031B361 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				A35A447A23DFD82700EF47F9 /* Audio */,
 				A3D7A1A623D019B500C4633B /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -221,7 +210,6 @@
 				A3D7A1A723D019B500C4633B /* Assets.xcassets in Resources */,
 				A3C6979123DF94E300E92EA2 /* MoleculeDetails.storyboard in Resources */,
 				A3AB4B2E23D021D30031B361 /* LaunchScreen.storyboard in Resources */,
-				A35A447923DFD82100EF47F9 /* hydrogen.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

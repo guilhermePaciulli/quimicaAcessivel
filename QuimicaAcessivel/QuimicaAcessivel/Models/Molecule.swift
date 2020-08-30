@@ -14,6 +14,7 @@ enum Molecule: String, CaseIterable {
     case hydrochloricAcid
     case potassiumFluoride
     case hydrofluoricAcid
+    case sodiumChloride
     
     var name: String {
         switch self {
@@ -27,6 +28,8 @@ enum Molecule: String, CaseIterable {
             return "Fluoreto de potássio"
         case .hydrofluoricAcid:
             return "Ácido fluorídrico"
+        case .sodiumChloride:
+            return "Cloreto de sódio"
         }
     }
     
@@ -42,6 +45,8 @@ enum Molecule: String, CaseIterable {
             return [.fluoride, .potassium]
         case .hydrofluoricAcid:
             return [.hydrogen, .fluoride]
+        case .sodiumChloride:
+            return [.sodium, .chloride]
         }
     }
     
@@ -61,6 +66,8 @@ enum Molecule: String, CaseIterable {
             return "O fluoreto de potássio é o composto químico com a fórmula KF. Após o fluoreto de hidrogênio, o KF é a fonte primária do íon fluoreto para aplicações na fabricação e na química. O fluoreto de potássio é preparado dissolvendo o carbonato de potássio em ácido fluorídrico."
         case .hydrofluoricAcid:
             return "O ácido fluorídrico tem como fórmula HF. Ele é composto de um átomo de flúor e um de hidrogênio, conectados por uma ligação covalente. É um líquido incolor, fumegante, com ponto de ebulição de 20 ºC sob pressão normal. Em condições ambientes onde a temperatura é de 25 ºC, ele torna-se um gás."
+        case .sodiumChloride:
+            return "O cloreto de sódio, popularmente conhecido como sal ou sal de cozinha, é uma substância largamente utilizada, formada na proporção de um átomo de cloro para cada átomo de sódio. A sua fórmula química é NaCl. O sal é essencial para a vida animal e é também um importante conservante de alimentos e um popular tempero."
         }
     }
     
@@ -72,7 +79,7 @@ extension Molecule {
     static func combinationExists(between atoms: [Atom]) -> Molecule? {
         return allCases.first(where: { mol in
             return mol.combination.allSatisfy({ type in
-                return mol.combination.first(where: { $0 == type }) != nil
+                return atoms.first(where: { $0.type == type }) != nil
             })
         })
     }

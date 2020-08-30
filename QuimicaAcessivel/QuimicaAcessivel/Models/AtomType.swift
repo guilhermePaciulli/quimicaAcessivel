@@ -61,11 +61,6 @@ enum AtomType: String, CaseIterable {
         }
     }
     
-    
-    func sound() -> SCNAudioPlayer? {
-        return AtomType.hydrogen.rawValue.audioForName
-    }
-    
     static func displayableAtoms() -> [Atom] {
         guard let extraHydrogen = Atom(with: .hydrogen, andReferenceImage: "hydrogen2") else { return [] }
         return allCases.compactMap { Atom(with: $0) } + [extraHydrogen]

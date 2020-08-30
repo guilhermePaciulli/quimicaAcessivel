@@ -1,17 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kno-7o-cwc">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="GiG-vc-qqa">
+            <objects>
+                <viewController id="Kno-7o-cwc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hsh-F9-raM">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="du6-os-G9B">
+                                <rect key="frame" x="68" y="345" width="760" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Continuar">
+                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="riT-1h-ctM"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="04o-ab-kV9">
+                                <rect key="frame" x="628" y="96.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="04o-ab-kV9" secondAttribute="height" multiplier="1:1" id="TI3-FH-J8c"/>
+                                    <constraint firstAttribute="width" constant="200" id="uRX-gr-EPJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem vindo ao Química Acessível" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrq-sO-ZLa">
+                                <rect key="frame" x="68" y="24" width="760" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Wql-gZ-1X1">
+                                <rect key="frame" x="68" y="77" width="536" height="253"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este jogo tem por objetivo validar a acessibilidade de um jogo para o ensino de química." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FcN-Cx-N3u">
+                                        <rect key="frame" x="0.0" y="0.0" width="536" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="À sua frente encontram-se cartões, mova e interaja com eles procurando afastá-los e aproxíma-los." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5I-0R-fAi">
+                                        <rect key="frame" x="0.0" y="53" width="536" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Este jogo tem por objetivo validar a acessibilidade de um jogo para o ensino de química." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEE-Ua-tG9">
+                                        <rect key="frame" x="0.0" y="106" width="536" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toque duas vezes na tela para saber como estão dispostos." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uT-a7-mBI">
+                                        <rect key="frame" x="0.0" y="159" width="536" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Para navegar, deslize para direita, esquerda, cima e baixo. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMt-H9-jkH">
+                                        <rect key="frame" x="0.0" y="212" width="536" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xrq-sO-ZLa" firstAttribute="leading" secondItem="ED3-0i-vzT" secondAttribute="leading" constant="24" id="1nP-Vb-UHj"/>
+                            <constraint firstItem="du6-os-G9B" firstAttribute="leading" secondItem="ED3-0i-vzT" secondAttribute="leading" constant="24" id="AL7-3i-SAF"/>
+                            <constraint firstItem="ED3-0i-vzT" firstAttribute="trailing" secondItem="xrq-sO-ZLa" secondAttribute="trailing" constant="24" id="DCF-ZC-vD6"/>
+                            <constraint firstItem="xrq-sO-ZLa" firstAttribute="top" secondItem="ED3-0i-vzT" secondAttribute="top" constant="24" id="Pz1-0s-7Hc"/>
+                            <constraint firstItem="04o-ab-kV9" firstAttribute="centerY" secondItem="ED3-0i-vzT" secondAttribute="centerY" id="QsZ-hr-oFn"/>
+                            <constraint firstItem="ED3-0i-vzT" firstAttribute="trailing" secondItem="du6-os-G9B" secondAttribute="trailing" constant="24" id="duY-Gz-hhc"/>
+                            <constraint firstItem="ED3-0i-vzT" firstAttribute="trailing" secondItem="04o-ab-kV9" secondAttribute="trailing" constant="24" id="enl-cG-QME"/>
+                            <constraint firstItem="04o-ab-kV9" firstAttribute="leading" secondItem="Wql-gZ-1X1" secondAttribute="trailing" constant="24" id="eyE-Rb-aML"/>
+                            <constraint firstItem="Wql-gZ-1X1" firstAttribute="leading" secondItem="ED3-0i-vzT" secondAttribute="leading" constant="24" id="hkU-NE-fNV"/>
+                            <constraint firstItem="Wql-gZ-1X1" firstAttribute="top" secondItem="xrq-sO-ZLa" secondAttribute="bottom" constant="24" id="kHz-dS-EMX"/>
+                            <constraint firstItem="ED3-0i-vzT" firstAttribute="bottom" secondItem="du6-os-G9B" secondAttribute="bottom" constant="12" id="mge-cW-rMb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ED3-0i-vzT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0df-5i-ujc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-854.46428571428567" y="133.33333333333334"/>
+        </scene>
         <!--ARView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="ARView" customClass="ViewController" customModule="QuimicaAcessivel" customModuleProvider="target" sceneMemberID="viewController">
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PBO-yn-Wqb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </arscnView>
                     <connections>
@@ -20,7 +109,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="134"/>
+            <point key="canvasLocation" x="-139" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="512" height="512"/>
+    </resources>
 </document>
